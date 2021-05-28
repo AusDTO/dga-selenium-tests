@@ -1,0 +1,72 @@
+{
+  "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
+  "version": "2.0",
+  "name": "datagovau",
+  "url": "https://data.gov.au/data",
+  "tests": [{
+    "id": "19da0451-d821-4746-b34a-03877c33c028",
+    "name": "home_page_01-content",
+    "commands": [{
+      "id": "03c92c59-7382-498d-99cc-9206c1d381db",
+      "comment": "",
+      "command": "open",
+      "target": "https://data.gov.au/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "50c47ce8-916b-435f-81b9-5ec5a12a99ee",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.heading",
+      "targets": [
+        ["css=.heading", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Search data')]", "xpath:innerText"]
+      ],
+      "value": "Search data"
+    }, {
+      "id": "80f357af-ddf7-449d-96db-0a01369b894f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=li:nth-child(1) span",
+      "targets": [
+        ["css=li:nth-child(1) span", "css:finder"],
+        ["xpath=//b/span", "xpath:position"],
+        ["xpath=//span[contains(.,'5.5k')]", "xpath:innerText"]
+      ],
+      "value": "5.5k"
+    }, {
+      "id": "f293f8f1-e2e8-48fa-899a-fb9eb95842cb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=li:nth-child(3) span",
+      "targets": [
+        ["css=li:nth-child(3) span", "css:finder"],
+        ["xpath=//li[3]/a/b/span", "xpath:position"],
+        ["xpath=//span[contains(.,'3.4k')]", "xpath:innerText"]
+      ],
+      "value": "3.4k"
+    }, {
+      "id": "2dd3e358-108b-4534-b890-c64122256e8a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=li:nth-child(4) span",
+      "targets": [
+        ["css=li:nth-child(4) span", "css:finder"],
+        ["xpath=//li[4]/a/b/span", "xpath:position"],
+        ["xpath=//span[contains(.,'22')]", "xpath:innerText"]
+      ],
+      "value": "22"
+    }]
+  }],
+  "suites": [{
+    "id": "fd5b39a2-33b0-40a5-a5fc-ac70dd0fc14b",
+    "name": "Home page",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["19da0451-d821-4746-b34a-03877c33c028"]
+  }],
+  "urls": ["https://data.gov.au/", "https://data.gov.au/data"],
+  "plugins": []
+}
