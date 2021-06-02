@@ -226,7 +226,7 @@
       "id": "1e5ab7b6-2b70-4a4c-a37a-b6ec37daf7ca",
       "comment": "",
       "command": "storeText",
-      "target": "css=.search-form > h2",
+      "target": "css=.search-form>h2",
       "targets": [
         ["css=h2:nth-child(3)", "css:finder"],
         ["xpath=//div[@id='content']/div[3]/div/section/div/form/h2", "xpath:idRelative"],
@@ -369,7 +369,164 @@
   }, {
     "id": "4c0c5ba8-b4bb-473b-a7c6-077411f246ba",
     "name": "05_navigate_to_about",
-    "commands": []
+    "commands": [{
+      "id": "142b5f2a-36c1-4a82-9d35-b3872d6e684e",
+      "comment": "",
+      "command": "open",
+      "target": "https://data.gov.au/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a97b36fb-7d74-457c-8452-bef000d2774a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8ba62b42-940a-4592-9390-0272304690ff",
+    "name": "01_search_datasets_blank_terms",
+    "commands": [{
+      "id": "b00c568c-414a-40d6-93b3-393bd80e62e2",
+      "comment": "",
+      "command": "open",
+      "target": "https://data.gov.au/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "115807d0-96ee-4970-a3a0-51cb43dc64f3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4bda0c38-4da0-4782-a691-c5d6b64884ce",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c5a9b49a-d8cc-4b8a-98e0-9fb1cfc37014",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "css=.search",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "bd49a188-cfe0-485f-bfc4-003bfb23abbc",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${totalDatasets}.match(/\\d+/g).join(\"\") >= 5400",
+      "targets": [],
+      "value": "validNumberOfDatasets"
+    }]
+  }, {
+    "id": "603223eb-aa1b-4558-afb9-05b9458794ef",
+    "name": "03_select_organisation_filter",
+    "commands": [{
+      "id": "f78d960a-0128-46d0-82d4-9a28e809389b",
+      "comment": "",
+      "command": "open",
+      "target": "https://data.gov.au/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "392e3e82-d694-4750-8169-a903a54454af",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e24fce6b-05cb-4871-a331-c2582f95420a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Datasets",
+      "targets": [
+        ["linkText=Datasets", "linkText"],
+        ["css=.nav > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Datasets')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/data/dataset')]", "xpath:href"],
+        ["xpath=//div/div/nav/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Datasets')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a1eb3b3-aae8-45b8-afd7-5d667e6ff6be",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.search",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//section/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf633c0a-19f6-4721-8d24-45bea74f97ed",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.module:nth-child(1) .nav-item:nth-child(1) span",
+      "targets": [
+        ["css=.module:nth-child(1) .nav-item:nth-child(1) span", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section/nav/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Bioregional Assessm... (1766)')]", "xpath:innerText"]
+      ],
+      "value": "firstOrg"
+    }, {
+      "id": "4018065c-d91c-42f7-9d03-2dac21a643b5",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${firstOrg}.match(/\\d+/g)[0]",
+      "targets": [],
+      "value": "firstOrgCount"
+    }, {
+      "id": "1683dd03-7592-4b50-be51-1d4b0858c2c1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.module:nth-child(1) .nav-item:nth-child(1) span",
+      "targets": [
+        ["css=.module:nth-child(1) .nav-item:nth-child(1) span", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section/nav/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Bioregional Assessm... (1766)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6d074ad-f923-48c9-8fbe-f74b6748ba0c",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.search-form>h2",
+      "targets": [],
+      "value": "totalDatasetsWithFilter"
+    }, {
+      "id": "e8f0c9c4-a7da-4b0f-9bc7-4526b7acce06",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${totalDatasetsWithFilter}.match(/\\d+/g).join(\"\") === ${firstOrgCount}",
+      "targets": [],
+      "value": "organisationValuesMatch"
+    }, {
+      "id": "16401860-b1e2-4620-aae8-f27a7f015888",
+      "comment": "",
+      "command": "assert",
+      "target": "organisationValuesMatch",
+      "targets": [],
+      "value": "true"
+    }]
   }],
   "suites": [{
     "id": "fd5b39a2-33b0-40a5-a5fc-ac70dd0fc14b",
@@ -377,7 +534,14 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["19da0451-d821-4746-b34a-03877c33c028"]
+    "tests": ["19da0451-d821-4746-b34a-03877c33c028", "3f33fbff-304d-419e-b00a-b74beae38334", "3f588ddb-f066-4912-bb42-ffcdeb5b9d2d", "284c6b77-0243-4bd3-8529-a28871416142", "4c0c5ba8-b4bb-473b-a7c6-077411f246ba"]
+  }, {
+    "id": "8665c080-52ce-4148-9b64-ebbadaafe95c",
+    "name": "Search page",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
   }],
   "urls": ["https://data.gov.au/", "https://data.gov.au/data"],
   "plugins": []
