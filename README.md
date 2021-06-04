@@ -13,7 +13,7 @@ These links were helpful.
 
 Most of the commands are pretty straight forward to use. Below are a few examples that may help with some of the more tricky tests you are trying to create.
 
-**Storing element count**
+### Storing element count
 
 E.g count the number of `<p>` tags that have the css class of `text` and store it in a variable called `textElements`
 
@@ -21,7 +21,7 @@ E.g count the number of `<p>` tags that have the css class of `text` and store i
 | ----------------- | ------------------------ | ---------------- |
 | store xpath count | xpath=//p[@class="text"] | textElementCount |
 
-**Echo**
+### Echo
 
 Echo can be useful for debugging purpose.
 If we wanted to print the variable `textElements` from the above example to the log, we can do the following.
@@ -30,7 +30,7 @@ If we wanted to print the variable `textElements` from the above example to the 
 | ------- | ------------------- | ----- |
 | echo    | ${textElementCount} |       |
 
-**Assert**
+### Assert
 
 If we wanted to verify the number of `textElements` from above, we can do so by using the `assert` command. Lets say as an example there were 8 text elements. We could do the following to verify
 
@@ -40,7 +40,7 @@ If we wanted to verify the number of `textElements` from above, we can do so by 
 
 Notice that when we are running the `assert` command, we don't need to have the `${}` wrapped around the variable name.
 
-**Executing javascript**
+### Executing javascript
 
 It's possible to run javascript using the `execute script` command. There are many use cases for this. One such use case for data.gov.au is to extract data from text and use that to compare values.
 
@@ -63,7 +63,7 @@ We can then use the comparison operator and store it as a variable.
 | execute javascript | return ${totalDatasets}.match(/\d+/g).join("") >= 5800 | totalDatasetCount |
 | assert             | totalDatasetCount                                      | true              |
 
-**Storing child element count**
+### Storing child element count
 
 To find the count of all `<li>` under the element `<ul class="dataset list">`, run the following.
 
