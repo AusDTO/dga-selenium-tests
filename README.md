@@ -4,6 +4,10 @@ Make sure you have [Selenium IDE](https://www.selenium.dev/selenium-ide/) instal
 
 Open the Selenium IDE and open the `datagovau.side` project file. This will open up a project with all the tests.
 
+## Contributing
+
+Once you have made some changes in your selenium IDE (such as adding more tests, editing tests etc), you can then save your changes and over write the existing datagovau.side file.
+
 ## Useful selenium commands
 
 These links were helpful.
