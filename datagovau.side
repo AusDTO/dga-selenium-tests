@@ -424,12 +424,31 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
+      "id": "e0b99cc3-6c21-4184-a260-fcb38a02f5ae",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=h2:nth-child(3)",
+      "targets": [
+        ["css=h2:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/form/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'5,489 datasets found')]", "xpath:innerText"]
+      ],
+      "value": "totalDatasetsText"
+    }, {
       "id": "bd49a188-cfe0-485f-bfc4-003bfb23abbc",
       "comment": "",
       "command": "executeScript",
-      "target": "return ${totalDatasets}.match(/\\d+/g).join(\"\") >= 5400",
+      "target": "return ${totalDatasetsText}.match(/\\d+/g).join(\"\") >= 5400",
       "targets": [],
       "value": "validNumberOfDatasets"
+    }, {
+      "id": "64fafa53-64ef-4415-87d7-78f031ed3d47",
+      "comment": "",
+      "command": "assert",
+      "target": "validNumberOfDatasets",
+      "targets": [],
+      "value": "true"
     }]
   }, {
     "id": "603223eb-aa1b-4558-afb9-05b9458794ef",
