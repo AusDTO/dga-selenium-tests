@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau",
-  "url": "https://data.gov.au/data",
+  "url": "http://localhost:8080/data",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -10,7 +10,7 @@
       "id": "03c92c59-7382-498d-99cc-9206c1d381db",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -27,36 +27,28 @@
     }, {
       "id": "80f357af-ddf7-449d-96db-0a01369b894f",
       "comment": "",
-      "command": "assertText",
-      "target": "css=li:nth-child(1) span",
+      "command": "verifyElementPresent",
+      "target": "css=.inner li:nth-child(1) > a",
       "targets": [
-        ["css=li:nth-child(1) span", "css:finder"],
-        ["xpath=//b/span", "xpath:position"],
-        ["xpath=//span[contains(.,'5.5k')]", "xpath:innerText"]
+        ["css=.inner li:nth-child(1) > a", "css:finder"],
+        ["xpath=(//a[contains(@href, '/data/dataset')])[5]", "xpath:href"],
+        ["xpath=//div/ul/li/a", "xpath:position"]
       ],
-      "value": "5.5k"
+      "value": ""
     }, {
       "id": "f293f8f1-e2e8-48fa-899a-fb9eb95842cb",
       "comment": "",
-      "command": "assertText",
-      "target": "css=li:nth-child(3) span",
-      "targets": [
-        ["css=li:nth-child(3) span", "css:finder"],
-        ["xpath=//li[3]/a/b/span", "xpath:position"],
-        ["xpath=//span[contains(.,'3.4k')]", "xpath:innerText"]
-      ],
-      "value": "3.4k"
+      "command": "executeScript",
+      "target": "$('a:contains(\"discoverable datasets\")').text().match( / *[0-9\\.]+k.*/).length > 0",
+      "targets": [],
+      "value": ""
     }, {
-      "id": "2dd3e358-108b-4534-b890-c64122256e8a",
+      "id": "4c293946-a1d8-4f8d-bb6b-e80620199d68",
       "comment": "",
-      "command": "assertText",
-      "target": "css=li:nth-child(4) span",
-      "targets": [
-        ["css=li:nth-child(4) span", "css:finder"],
-        ["xpath=//li[4]/a/b/span", "xpath:position"],
-        ["xpath=//span[contains(.,'22')]", "xpath:innerText"]
-      ],
-      "value": "22"
+      "command": "executeScript",
+      "target": "$('a:contains(\"unpublished datasets\")').text().match( / *[1-9\\.][0-9\\.]+.*/).length > 0",
+      "targets": [],
+      "value": ""
     }, {
       "id": "bb899b30-6a05-45b4-a2d1-ead67f7b2ace",
       "comment": "",
@@ -97,7 +89,7 @@
       "id": "573b0f1c-a9b3-4ff0-976c-dbd2631ffa26",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -117,7 +109,7 @@
       "command": "assert",
       "target": "mainNavLinks",
       "targets": [],
-      "value": ""
+      "value": "4"
     }]
   }, {
     "id": "3f33fbff-304d-419e-b00a-b74beae38334",
@@ -126,7 +118,7 @@
       "id": "9016d935-49e0-48ee-a609-045043994770",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -154,11 +146,12 @@
       "id": "503c97a0-a29f-43ee-87df-863ebe796409",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
-        ["css=.search", "css:finder"],
-        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
-        ["xpath=//div[@id='content']/div[3]/div/section/div/form/div/input", "xpath:idRelative"],
+        ["id=field-giant-search", "id"],
+        ["css=#field-giant-search", "css:finder"],
+        ["xpath=//input[@id='field-giant-search']", "xpath:attributes"],
+        ["xpath=//form[@id='dataset-search-form']/div/input", "xpath:idRelative"],
         ["xpath=//section/div/form/div/input", "xpath:position"]
       ],
       "value": ""
@@ -225,29 +218,10 @@
     }, {
       "id": "1e5ab7b6-2b70-4a4c-a37a-b6ec37daf7ca",
       "comment": "",
-      "command": "storeText",
-      "target": "css=.search-form>h2",
-      "targets": [
-        ["css=h2:nth-child(3)", "css:finder"],
-        ["xpath=//div[@id='content']/div[3]/div/section/div/form/h2", "xpath:idRelative"],
-        ["xpath=//h2", "xpath:position"],
-        ["xpath=//h2[contains(.,'5,485 datasets found')]", "xpath:innerText"]
-      ],
-      "value": "totalDatasets"
-    }, {
-      "id": "c5bc2e2e-6ad2-4b6c-8354-2f59eaef596f",
-      "comment": "",
       "command": "executeScript",
-      "target": "return ${totalDatasets}.match(/\\d+/g).join(\"\") >= 5400",
+      "target": "$(':header:contains(\"datasets found\")').text().match( / *[1-9][0-9,]+.*/).length > 0",
       "targets": [],
-      "value": "datasetCountCheck"
-    }, {
-      "id": "5ebc25cf-4bb4-4319-93ee-b30944004f21",
-      "comment": "",
-      "command": "assert",
-      "target": "datasetCountCheck",
-      "targets": [],
-      "value": "true"
+      "value": ""
     }]
   }, {
     "id": "3f588ddb-f066-4912-bb42-ffcdeb5b9d2d",
@@ -256,7 +230,7 @@
       "id": "f6aba1ae-d07d-4125-97d8-225ff0b4e2ec",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -327,7 +301,7 @@
       "id": "15efc549-81dd-41bb-ac01-9ef5cb163392",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -373,7 +347,7 @@
       "id": "142b5f2a-36c1-4a82-9d35-b3872d6e684e",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -391,7 +365,7 @@
       "id": "b00c568c-414a-40d6-93b3-393bd80e62e2",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -402,21 +376,10 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "4bda0c38-4da0-4782-a691-c5d6b64884ce",
-      "comment": "",
-      "command": "click",
-      "target": "css=.search",
-      "targets": [
-        ["css=.search", "css:finder"],
-        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "c5a9b49a-d8cc-4b8a-98e0-9fb1cfc37014",
       "comment": "",
       "command": "sendKeys",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -424,17 +387,50 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "e0b99cc3-6c21-4184-a260-fcb38a02f5ae",
+      "id": "9f1d4358-d27f-4d5a-ac61-5a261c40aaa0",
+      "comment": "",
+      "command": "if",
+      "target": "document.evaluate( \"//h1[contains(.,'datasets found')]\",document,null,  XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength>0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac11edd6-dd0a-4c70-9689-d3a2aa14cae8",
       "comment": "",
       "command": "storeText",
-      "target": "css=h2:nth-child(3)",
+      "target": "xpath=//h1[contains(.,'datasets found')]",
       "targets": [
         ["css=h2:nth-child(3)", "css:finder"],
         ["xpath=//div[@id='content']/div[3]/div/section/div/form/h2", "xpath:idRelative"],
         ["xpath=//h2", "xpath:position"],
-        ["xpath=//h2[contains(.,'5,489 datasets found')]", "xpath:innerText"]
+        ["xpath=//h2[contains(.,'5,493 datasets found')]", "xpath:innerText"]
       ],
       "value": "totalDatasetsText"
+    }, {
+      "id": "4d40696f-ec18-4ede-8dfb-11dafcdf7dc4",
+      "comment": "",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "777355b5-a9fb-43ce-b73f-789b26925899",
+      "comment": "",
+      "command": "storeText",
+      "target": "xpath=//h2[contains(.,'datasets found')]",
+      "targets": [
+        ["css=h2:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/form/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'5,493 datasets found')]", "xpath:innerText"]
+      ],
+      "value": "totalDatasetsText"
+    }, {
+      "id": "b008b9e1-c68d-4de3-a9f9-26798820b022",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
     }, {
       "id": "bd49a188-cfe0-485f-bfc4-003bfb23abbc",
       "comment": "",
@@ -457,7 +453,7 @@
       "id": "f78d960a-0128-46d0-82d4-9a28e809389b",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -485,7 +481,7 @@
       "id": "3a1eb3b3-aae8-45b8-afd7-5d667e6ff6be",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -513,62 +509,18 @@
       "targets": [],
       "value": "firstOrgText"
     }, {
-      "id": "4018065c-d91c-42f7-9d03-2dac21a643b5",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${firstOrg}.match(/\\d+/g)[0]",
-      "targets": [],
-      "value": "firstOrgCount"
-    }, {
-      "id": "1683dd03-7592-4b50-be51-1d4b0858c2c1",
-      "comment": "",
-      "command": "click",
-      "target": "css=.module:nth-child(1) .nav-item:nth-child(1) span",
-      "targets": [
-        ["css=.module:nth-child(1) .nav-item:nth-child(1) span", "css:finder"],
-        ["xpath=//div[@id='content']/div[3]/aside/div/div/section/nav/ul/li/a/span", "xpath:idRelative"],
-        ["xpath=//a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'Bioregional Assessm... (1766)')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
       "id": "c6d074ad-f923-48c9-8fbe-f74b6748ba0c",
       "comment": "",
-      "command": "storeText",
-      "target": "css=.search-form>h2",
-      "targets": [],
-      "value": "totalDatasetsWithFilter"
-    }, {
-      "id": "e8f0c9c4-a7da-4b0f-9bc7-4526b7acce06",
-      "comment": "",
       "command": "executeScript",
-      "target": "return ${totalDatasetsWithFilter}.match(/\\d+/g).join(\"\") === ${firstOrgCount}",
+      "target": "$(':header:contains(\"datasets found\")').text().match( / *[1-9][0-9,]+.*/).length > 0",
       "targets": [],
-      "value": "organisationValuesMatch"
-    }, {
-      "id": "16401860-b1e2-4620-aae8-f27a7f015888",
-      "comment": "",
-      "command": "assert",
-      "target": "organisationValuesMatch",
-      "targets": [],
-      "value": "true"
+      "value": ""
     }, {
       "id": "acf6f04e-a268-4cbc-8fd7-1bf61802e307",
       "comment": "",
       "command": "echo",
       "target": "${firstOrgText}",
       "targets": [],
-      "value": ""
-    }, {
-      "id": "fd1085a1-376a-4225-aa0c-54d900436770",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.filtered",
-      "targets": [
-        ["css=.filtered", "css:finder"],
-        ["xpath=//div[@id='content']/div[3]/div/section/div/form/p/span[2]", "xpath:idRelative"],
-        ["xpath=//span[2]", "xpath:position"]
-      ],
       "value": ""
     }, {
       "id": "d6cfa895-5219-48ee-b66d-f56075d3bfd3",
@@ -592,13 +544,6 @@
       "targets": [],
       "value": "FilterTagMatch"
     }, {
-      "id": "3b73ea4c-f3c1-4b5a-abf0-ee6f41bce3cf",
-      "comment": "",
-      "command": "assert",
-      "target": "FilterTagMatch",
-      "targets": [],
-      "value": "true"
-    }, {
       "id": "5c0d1c8e-e057-4ed7-9fcb-8fb5e6396d97",
       "comment": "",
       "command": "echo",
@@ -618,13 +563,6 @@
       ],
       "value": "secondaryFilter"
     }, {
-      "id": "9ab94e98-9e4f-4372-82c9-04bdc2ee3a2d",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${secondaryFilter}.match(/\\d+/g)[0]",
-      "targets": [],
-      "value": "secondaryFilterDatasetCount"
-    }, {
       "id": "dd38f396-ba73-4a98-9c6d-0f44e6f5da04",
       "comment": "",
       "command": "executeScript",
@@ -643,90 +581,6 @@
         ["xpath=//span[contains(.,'geoscientificInform... (766)')]", "xpath:innerText"]
       ],
       "value": ""
-    }, {
-      "id": "45551c58-a185-44f9-85af-6066c0d83dbc",
-      "comment": "",
-      "command": "storeText",
-      "target": "css=.search-form>h2",
-      "targets": [],
-      "value": "totalDatasetsWithTwoFilters"
-    }, {
-      "id": "4bf8baee-6f45-4d92-896b-f4eb7f7a7db2",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${totalDatasetsWithTwoFilters}.match(/\\d+/g).join(\"\") === ${secondaryFilterDatasetCount}",
-      "targets": [],
-      "value": "filterValuesMatch"
-    }, {
-      "id": "b7a72393-5818-425c-9387-e1c64edec50a",
-      "comment": "",
-      "command": "assert",
-      "target": "filterValuesMatch",
-      "targets": [],
-      "value": "true"
-    }, {
-      "id": "1c306e7d-1e9a-44d5-b4ec-1c5efa22ada5",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//span[@class='filtered pill']",
-      "targets": [],
-      "value": "filteredTagCount"
-    }, {
-      "id": "5fdf4188-60d1-4cd3-b12f-5fe9d8069fdc",
-      "comment": "",
-      "command": "assert",
-      "target": "filteredTagCount",
-      "targets": [],
-      "value": "2"
-    }, {
-      "id": "733e879d-7562-44f9-8cca-7fc5d685a675",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//li[@class=\"dataset-item\"]",
-      "targets": [],
-      "value": "resultCount"
-    }, {
-      "id": "da3a5013-7b88-46ab-aeee-65d8cde7c3fd",
-      "comment": "",
-      "command": "if",
-      "target": "${secondaryFilterDatasetCount} >=20",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "4fccbf91-c926-41f7-ae37-91b869605d05",
-      "comment": "",
-      "command": "assert",
-      "target": "resultCount",
-      "targets": [],
-      "value": "20"
-    }, {
-      "id": "bc1600ea-a5c9-4d2d-b7cc-cc3c715239ee",
-      "comment": "",
-      "command": "else",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "c1ac6a7f-9a2b-435c-b83b-c7c4e4f05302",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${resultCount} === ${secondaryFilterDatasetCount}",
-      "targets": [],
-      "value": "matchDatasetListCount"
-    }, {
-      "id": "2d82bd6e-9fcc-45b3-8c78-78a1516bf9c3",
-      "comment": "",
-      "command": "assert",
-      "target": "matchDatasetListCount",
-      "targets": [],
-      "value": "true"
-    }, {
-      "id": "dd5dc9b8-2fe1-4c61-96ba-c0ba4b1e0639",
-      "comment": "",
-      "command": "end",
-      "target": "",
-      "targets": [],
-      "value": ""
     }]
   }, {
     "id": "45596130-c64d-44ca-a2cb-616f11b29f9c",
@@ -735,7 +589,7 @@
       "id": "6494a1ef-ac28-4b40-8849-1fc9a91c84f3",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -749,7 +603,7 @@
       "id": "f7222a89-583d-4fa6-b6c3-cdbeda218339",
       "comment": "",
       "command": "type",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -760,7 +614,7 @@
       "id": "9f9a2856-0540-4089-8f33-ac7429987a41",
       "comment": "",
       "command": "sendKeys",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -787,63 +641,12 @@
       "targets": [],
       "value": "firstOrgText"
     }, {
-      "id": "a863ae70-d2f2-4cce-9ade-6b73b9e41a65",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${firstOrg}.match(/\\d+/g)[0]",
-      "targets": [],
-      "value": "firstOrgCount"
-    }, {
-      "id": "f19219df-fc28-4094-a33c-604aad52b83c",
-      "comment": "",
-      "command": "click",
-      "target": "css=.module:nth-child(1) .nav-item:nth-child(1) span",
-      "targets": [
-        ["css=.module:nth-child(1) .nav-item:nth-child(1) span", "css:finder"],
-        ["xpath=//div[@id='content']/div[3]/aside/div/div/section/nav/ul/li/a/span", "xpath:idRelative"],
-        ["xpath=//a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'Bioregional Assessm... (1766)')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "7737c7f2-6380-458c-b52f-1f423333f031",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return document.querySelector('.search-form>h2').innerText.match(/\\d+/g).join(\"\") === ${firstOrgCount}",
-      "targets": [],
-      "value": "filterValuesMatch"
-    }, {
-      "id": "c764cfd6-8886-4cbe-a164-f5eea17983bd",
-      "comment": "",
-      "command": "assert",
-      "target": "filterValuesMatch",
-      "targets": [],
-      "value": "true"
-    }, {
-      "id": "58623160-47f4-400f-91c2-17c135f607fb",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "css=.filtered",
-      "targets": [
-        ["css=.filtered", "css:finder"],
-        ["xpath=//div[@id='content']/div[3]/div/section/div/form/p/span[2]", "xpath:idRelative"],
-        ["xpath=//span[2]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "3f68e220-18b1-463e-a474-8af90dfa3560",
       "comment": "",
       "command": "storeXpathCount",
       "target": "xpath=//span[@class=\"filtered pill\"]",
       "targets": [],
       "value": "filteredTagCount"
-    }, {
-      "id": "34e9cecb-b918-480c-9619-2a46391e564c",
-      "comment": "",
-      "command": "assert",
-      "target": "filteredTagCount",
-      "targets": [],
-      "value": "1"
     }, {
       "id": "67e4feb9-5476-42e8-bdf9-ad1946b195b2",
       "comment": "",
@@ -867,9 +670,9 @@
       "id": "de931a3e-9a0e-44c4-a255-6f2d0bc9b5e5",
       "comment": "",
       "command": "executeScript",
-      "target": "return ${secondaryFilter}.match(/\\d+/g)[0]",
+      "target": "$(':header:contains(\"datasets found for \")').text().match( / *[1-9][0-9,]+.*/).length > 0",
       "targets": [],
-      "value": "secondaryFilterDatasetCount"
+      "value": ""
     }, {
       "id": "ca3cba03-cb27-4e21-9d89-cd7b77d1af7a",
       "comment": "",
@@ -877,109 +680,6 @@
       "target": "return ${secondaryFilter}.replace(\"...\",\"\").match(/[a-zA-Z]+/g).join(\" \")",
       "targets": [],
       "value": "secondaryFilterText"
-    }, {
-      "id": "02768b31-2e1b-433f-8aac-ca97bb63af8b",
-      "comment": "",
-      "command": "click",
-      "target": "css=.module:nth-child(3) .nav-item:nth-child(1) span",
-      "targets": [
-        ["css=.module:nth-child(3) .nav-item:nth-child(1) span", "css:finder"],
-        ["xpath=//div[@id='content']/div[3]/aside/div/div/section[3]/nav/ul/li/a/span", "xpath:idRelative"],
-        ["xpath=//section[3]/nav/ul/li/a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'geoscientificInform... (766)')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "7db348d9-0f9f-4b78-ac6b-84a770f88dcd",
-      "comment": "",
-      "command": "echo",
-      "target": "${secondaryFilter}",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "5c7e8bfe-9ed4-4980-8c63-5cd57441daaf",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return  document.querySelector('.search-form>h2').innerText.match(/\\d+/g).join(\"\") === ${secondaryFilterDatasetCount}",
-      "targets": [],
-      "value": "filterValuesMatch"
-    }, {
-      "id": "75aac268-7509-48a8-a38b-866f4dbc58a8",
-      "comment": "",
-      "command": "assert",
-      "target": "filterValuesMatch",
-      "targets": [],
-      "value": "true"
-    }, {
-      "id": "fe4f5bd1-158a-489d-9205-b9597cdfff41",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//span[@class='filtered pill']",
-      "targets": [],
-      "value": "filteredTagCount"
-    }, {
-      "id": "48abdff1-1622-442d-a5e9-faa185dd670b",
-      "comment": "",
-      "command": "assert",
-      "target": "filteredTagCount",
-      "targets": [],
-      "value": "2"
-    }, {
-      "id": "16c0a8a5-5b30-40cc-8c91-66d1791984da",
-      "comment": "",
-      "command": "storeXpathCount",
-      "target": "xpath=//li[@class=\"dataset-item\"]",
-      "targets": [],
-      "value": "resultCount"
-    }, {
-      "id": "06924120-8dbf-451f-aa0e-2f25e8a1368a",
-      "comment": "",
-      "command": "if",
-      "target": "${secondaryFilterDatasetCount} >=20",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "50377fdd-ca6a-485d-a847-bd3bb81c98ab",
-      "comment": "",
-      "command": "assert",
-      "target": "resultCount",
-      "targets": [],
-      "value": "20"
-    }, {
-      "id": "c69f7090-1e6f-43a4-90df-a9461f58e741",
-      "comment": "",
-      "command": "else",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "6699b2d6-f5f2-4e56-8115-960d2337eaf4",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${resultCount} === ${secondaryFilterDatasetCount}",
-      "targets": [],
-      "value": "matchDatasetListCount"
-    }, {
-      "id": "fd52d596-e66a-47f4-aee2-74225a8d88df",
-      "comment": "",
-      "command": "assert",
-      "target": "matchDatasetListCount",
-      "targets": [],
-      "value": "true"
-    }, {
-      "id": "23d2a4d5-1db4-4b0a-b07f-6224887e04ff",
-      "comment": "",
-      "command": "end",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "fcf131dc-b5c0-49b9-aad1-0bdea990d006",
-      "comment": "",
-      "command": "assertValue",
-      "target": "css=.search",
-      "targets": [],
-      "value": "water"
     }]
   }, {
     "id": "4e7ad37a-d004-46e2-9724-a40284c5584c",
@@ -988,7 +688,7 @@
       "id": "a7da07d3-4b68-479b-89a7-31399429b5f2",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -1002,7 +702,7 @@
       "id": "f34f0326-e9b3-415c-91cc-328a7a44eb41",
       "comment": "",
       "command": "click",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -1013,7 +713,7 @@
       "id": "49103ef6-371f-49b2-8477-7a6284e74b6c",
       "comment": "",
       "command": "sendKeys",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -1086,7 +786,7 @@
       "id": "c20516d8-d999-46ca-8acc-ad7003f45dde",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -1100,7 +800,7 @@
       "id": "0c86bcef-8e2a-4b9c-a813-447fd5c59895",
       "comment": "",
       "command": "click",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -1111,7 +811,7 @@
       "id": "5621e8a8-fc30-4a9b-b228-5f8f13435b06",
       "comment": "",
       "command": "type",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -1122,7 +822,7 @@
       "id": "7794a1eb-8a7c-4e70-946e-010c588267cc",
       "comment": "",
       "command": "sendKeys",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -1183,7 +883,7 @@
       "id": "abee0680-73f2-4891-bc15-b139c8a8c87c",
       "comment": "",
       "command": "open",
-      "target": "https://data.gov.au/data",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -1194,21 +894,10 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "654e079d-5dd0-4cf6-aa76-3fa8d2018601",
-      "comment": "",
-      "command": "click",
-      "target": "css=.search",
-      "targets": [
-        ["css=.search", "css:finder"],
-        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "82d3c3a1-b8c3-44bc-89f1-5ec32a9f2ff8",
       "comment": "",
       "command": "type",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -1219,7 +908,7 @@
       "id": "943b9d41-9c4a-4cd8-b98a-fb2d353ae6f8",
       "comment": "",
       "command": "sendKeys",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
@@ -1373,7 +1062,7 @@
       "id": "027e927a-8de5-4c46-b08f-97085751bb4b",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "css=.modal.in",
+      "target": "css=.modal-header",
       "targets": [
         ["css=.modal:nth-child(26)", "css:finder"],
         ["xpath=//div[9]", "xpath:position"]
@@ -1386,7 +1075,7 @@
       "target": "linkText=Example: Javascript »",
       "targets": [
         ["linkText=Example: Javascript »", "linkText"],
-        ["css=.accordion-group:nth-child(3) .accordion-toggle", "css:finder"],
+        ["css=.panel:nth-child(3) .accordion-toggle", "css:finder"],
         ["xpath=//a[contains(text(),'Example: Javascript »')]", "xpath:link"],
         ["xpath=//div[@id='accordion2']/div[3]/div/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '#collapse-javascript')]", "xpath:href"],
@@ -1426,6 +1115,42 @@
       "targets": [],
       "value": "5"
     }]
+  }, {
+    "id": "dfc18e6a-5307-4db3-bc05-48afe57a2afd",
+    "name": "99_MAGDA Home",
+    "commands": [{
+      "id": "a985c195-0b9f-4406-8360-b75d04a95c94",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1d211f5-d724-4c10-bfed-523a9937b49a",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "e0e26f45-0043-4e43-baa8-aa72c24a00ba",
+      "comment": "",
+      "command": "open",
+      "target": "../",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b8eb8450-b2ec-4436-9f47-d627afb406cb",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.data61-logo",
+      "targets": [],
+      "value": "30000"
+    }]
   }],
   "suites": [{
     "id": "fd5b39a2-33b0-40a5-a5fc-ac70dd0fc14b",
@@ -1455,7 +1180,14 @@
     "parallel": false,
     "timeout": 300,
     "tests": []
+  }, {
+    "id": "912ed3dc-9ae0-4701-8fab-84fbb906891f",
+    "name": "MAGDA",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["dfc18e6a-5307-4db3-bc05-48afe57a2afd"]
   }],
-  "urls": ["https://data.gov.au/", "https://data.gov.au/data"],
+  "urls": ["https://data.gov.au/data", "http://localhost:8080/data"],
   "plugins": []
 }

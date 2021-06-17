@@ -4,6 +4,12 @@ Make sure you have [Selenium IDE](https://www.selenium.dev/selenium-ide/) instal
 
 Open the Selenium IDE and open the `datagovau.side` project file. This will open up a project with all the tests.
 
+NB: To run tests which includes MAGDA you must disable CSP security
+
+- Firefox in page _about:config_
+    - security.csp.enable =    **false**
+    - security.csp.enableNavigateTo = **true**
+
 ## Contributing
 
 Once you have made some changes in your selenium IDE (such as adding more tests, editing tests etc), you can then save your changes and over write the existing datagovau.side file.
