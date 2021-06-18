@@ -1151,6 +1151,57 @@
       "targets": [],
       "value": "30000"
     }]
+  }, {
+    "id": "f65a0146-650d-4984-8097-1ae9a849004e",
+    "name": "50_organisation_dataset",
+    "commands": [{
+      "id": "1534a322-31f8-430d-b754-ad6ad60abe05",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c7dcd4f5-7c46-48d7-91b1-dae2b5442249",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1105x942",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7e16453e-1540-45d2-9de1-ce6cfd4654a6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Organisations",
+      "targets": [
+        ["linkText=Organisations", "linkText"],
+        ["css=.nav > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Organisations')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/data/organization')]", "xpath:href"],
+        ["xpath=//nav/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Organisations')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9abaeaa-bf46-4b51-84d9-800449f19da1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.media-item:nth-child(1) > .media-view",
+      "targets": [
+        ["css=.media-item:nth-child(1) > .media-view", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/div/article/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/data/organization/australianbureauofstatistics-geography')]", "xpath:href"],
+        ["xpath=//article/div/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2bf34394-5ba4-4049-b65b-af3571f09a84",
+      "comment": "",
+      "command": "executeScript",
+      "target": "$(':header:contains(\"datasets found\")').text().match( / *[1-9\\.][0-9\\.]+.*/).length > 0",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "fd5b39a2-33b0-40a5-a5fc-ac70dd0fc14b",
@@ -1158,7 +1209,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["19da0451-d821-4746-b34a-03877c33c028", "3f33fbff-304d-419e-b00a-b74beae38334", "3f588ddb-f066-4912-bb42-ffcdeb5b9d2d", "284c6b77-0243-4bd3-8529-a28871416142", "4c0c5ba8-b4bb-473b-a7c6-077411f246ba"]
+    "tests": ["19da0451-d821-4746-b34a-03877c33c028", "3f33fbff-304d-419e-b00a-b74beae38334", "284c6b77-0243-4bd3-8529-a28871416142", "4c0c5ba8-b4bb-473b-a7c6-077411f246ba"]
   }, {
     "id": "8665c080-52ce-4148-9b64-ebbadaafe95c",
     "name": "Search page",
@@ -1179,7 +1230,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": []
+    "tests": ["3f588ddb-f066-4912-bb42-ffcdeb5b9d2d", "f65a0146-650d-4984-8097-1ae9a849004e"]
   }, {
     "id": "912ed3dc-9ae0-4701-8fab-84fbb906891f",
     "name": "MAGDA",
