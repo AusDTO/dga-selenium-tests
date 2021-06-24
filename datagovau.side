@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau",
-  "url": "http://localhost:8080/data",
+  "url": "https://data.gov.au/data",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -1199,6 +1199,59 @@
       "comment": "",
       "command": "executeScript",
       "target": "$(':header:contains(\"datasets found\")').text().match( / *[1-9\\.][0-9\\.]+.*/).length > 0",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f08fadb4-d2c4-4198-be74-e29014d5dad3",
+    "name": "70_analytics_page",
+    "commands": [{
+      "id": "f4e592bb-5f28-4955-a63b-ea274e073fd9",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "410e725e-2596-4ac7-80e3-8459d8acefbd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1279x979",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f151abdb-92b0-4149-9907-155cd14f33e7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Site statistics",
+      "targets": [
+        ["linkText=Site statistics", "linkText"],
+        ["css=.au-footer__navigation:nth-child(2) li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Site statistics')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'https://data.gov.au/stats')]", "xpath:href"],
+        ["xpath=//nav[2]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Site statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "813c2308-f664-48e4-aea6-1d6ba4d6e566",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.module-heading",
+      "targets": [],
+      "value": "Statistics Menu"
+    }, {
+      "id": "50b3996b-ecf8-4d76-a309-a6bdd790a844",
+      "comment": "",
+      "command": "//click",
+      "target": "linkText=Publisher Usage Statistics",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd1e89ee-4981-477c-8ce7-bb79d1dce8c9",
+      "comment": "",
+      "command": "//click",
+      "target": "linkText=Dataset Usage Statistics",
       "targets": [],
       "value": ""
     }]
