@@ -1131,6 +1131,32 @@
       "target": "css=.data61-logo",
       "targets": [],
       "value": "30000"
+    }, {
+      "id": "2c47cf42-19a2-489e-8346-8b39cfcabca1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Metadata API",
+      "targets": [
+        ["linkText=Metadata API", "linkText"],
+        ["css=.au-footer__navigation:nth-child(3) li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Metadata API')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'https://search.data.gov.au/api/v0/apidocs/index.html')]", "xpath:href"],
+        ["xpath=//nav[3]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Metadata API')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bccf8cce-ec69-4f95-ae13-b1b77f777857",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#project h1",
+      "targets": [
+        ["css=#project h1", "css:finder"],
+        ["xpath=//div[@id='project']/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'MAGDA API Documentation')]", "xpath:innerText"]
+      ],
+      "value": "MAGDA API Documentation"
     }]
   }, {
     "id": "f65a0146-650d-4984-8097-1ae9a849004e",
@@ -1167,12 +1193,13 @@
       "id": "e9abaeaa-bf46-4b51-84d9-800449f19da1",
       "comment": "",
       "command": "click",
-      "target": "css=.media-item:nth-child(1) > .media-view",
+      "target": "id=field-giant-search",
       "targets": [
-        ["css=.media-item:nth-child(1) > .media-view", "css:finder"],
-        ["xpath=//div[@id='content']/div[3]/div/article/div/ul/li/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/data/organization/australianbureauofstatistics-geography')]", "xpath:href"],
-        ["xpath=//article/div/ul/li/a", "xpath:position"]
+        ["id=field-giant-search", "id"],
+        ["css=#field-giant-search", "css:finder"],
+        ["xpath=//input[@id='field-giant-search']", "xpath:attributes"],
+        ["xpath=//form[@id='organization-datasets-search-form']/div/input", "xpath:idRelative"],
+        ["xpath=//article/div/form/div/input", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -1235,6 +1262,292 @@
       "target": "linkText=Dataset Usage Statistics",
       "targets": [],
       "value": ""
+    }, {
+      "id": "7ffd337f-2db4-41bd-916e-47b263ccae44",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Site statistics",
+      "targets": [
+        ["linkText=Site statistics", "linkText"],
+        ["css=.au-footer__navigation:nth-child(2) li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Site statistics')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'https://data.gov.au/stats')]", "xpath:href"],
+        ["xpath=//nav[2]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Site statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "94583a76-535b-4820-b0e9-fd9ebd249288",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Site Analytics",
+      "targets": [
+        ["linkText=Site Analytics", "linkText"],
+        ["css=.nav-item:nth-child(7) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Site Analytics')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/aside/section/nav/ul/li[7]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '//data.gov.au/site-usage')]", "xpath:href"],
+        ["xpath=//li[7]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Site Analytics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5245578-4459-49f2-993d-b7061ea0d040",
+      "comment": "",
+      "command": "assertSelectedValue",
+      "target": "name=month",
+      "targets": [],
+      "value": "All months"
+    }, {
+      "id": "c7e21199-ba65-4ec7-85cd-541399560792",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-inline:nth-child(1) option:nth-child(3)",
+      "targets": [
+        ["css=.form-inline:nth-child(1) option:nth-child(3)", "css:finder"],
+        ["xpath=//option[@value='2021-05']", "xpath:attributes"],
+        ["xpath=//div[@id='totals']/form/select/option[3]", "xpath:idRelative"],
+        ["xpath=//option[3]", "xpath:position"],
+        ["xpath=//option[contains(.,'May 2021')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6c3af344-53e6-40de-a56b-8f4da0bd3c2e",
+    "name": "10_support_email",
+    "commands": [{
+      "id": "12b37e0e-a8f1-475c-ac68-46f631eb4164",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "848f1143-e7f1-48a1-8279-4dddfc81c546",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x895",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39b2996a-2895-4cb2-9ca8-57a5930fda14",
+      "comment": "",
+      "command": "click",
+      "target": "css=.au-footer__navigation:nth-child(1) li:nth-child(3)",
+      "targets": [
+        ["css=.au-footer__navigation:nth-child(1) li:nth-child(3)", "css:finder"],
+        ["xpath=//footer/div/nav/ul/li[3]", "xpath:position"],
+        ["xpath=//li[contains(.,'Privacy Policy')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2daf8da2-9f90-4733-a153-15180d559387",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Email",
+      "targets": [
+        ["linkText=Email", "linkText"],
+        ["css=p:nth-child(18) > a:nth-child(1)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Email')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, 'mailto:data@digital.gov.au')])[2]", "xpath:href"],
+        ["xpath=//p[11]/a", "xpath:position"]
+      ],
+      "value": "Email"
+    }]
+  }, {
+    "id": "a549faee-1a14-479e-827b-3e6bad66f19f",
+    "name": "11_support_toolkit",
+    "commands": [{
+      "id": "ac2a39a3-864e-4a64-888f-5fc3a8f1ed86",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28847ba4-f527-4267-842f-f85e15713068",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x895",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "33fbceb8-f4f3-4756-9c10-64ac6008a1fc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Open Data Toolkit",
+      "targets": [
+        ["linkText=Open Data Toolkit", "linkText"],
+        ["css=p > a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Open Data Toolkit')]", "xpath:link"],
+        ["xpath=//a[@href='http://toolkit.data.gov.au/']", "xpath:href"],
+        ["xpath=//p[11]/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Open Data Toolkit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d347db6c-ba07-4af8-9bf0-bd8a84c53c7d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1:nth-child(1)",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='mw-content-text']/div/h1", "xpath:idRelative"],
+        ["xpath=//div[4]/div/h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Open Data Toolkit')]", "xpath:innerText"]
+      ],
+      "value": "Open Data Toolkit"
+    }]
+  }, {
+    "id": "ca31ace8-aaea-430b-9010-b763dd836a5c",
+    "name": "90_MAGDA_API_Docs",
+    "commands": [{
+      "id": "d1a83678-fe28-4426-ab0f-debc2d436784",
+      "comment": "",
+      "command": "open",
+      "target": "https://data.gov.au/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b92974e-0858-491d-86a8-9a47f8b8861a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x778",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f8c067d4-86f7-4ef0-9c52-e66c680b7dc0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Metadata API",
+      "targets": [
+        ["linkText=Metadata API", "linkText"],
+        ["css=.au-footer__navigation:nth-child(3) li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Metadata API')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'https://search.data.gov.au/api/v0/apidocs/index.html')]", "xpath:href"],
+        ["xpath=//nav[3]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Metadata API')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d67b9570-623a-4944-a095-83556b08df9f",
+      "comment": "",
+      "command": "open",
+      "target": "https://search.data.gov.au/api/v0/apidocs/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e2a2bc91-afac-482d-8420-34de57f6431b",
+      "comment": "",
+      "command": "clickAt",
+      "target": "linkText=Authorization API",
+      "targets": [
+        ["linkText=Authorization API", "linkText"],
+        ["css=.nav-header:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Authorization API')]", "xpath:link"],
+        ["xpath=//nav[@id='scrollingNav']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#api-Auth')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Authorization API')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ea0c78d-0f6b-419a-b9b0-69608505107c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#api-Auth > h1",
+      "targets": [
+        ["css=#api-Auth > h1", "css:finder"],
+        ["xpath=//section[@id='api-Auth']/h1", "xpath:idRelative"],
+        ["xpath=//section/h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Authorization API')]", "xpath:innerText"]
+      ],
+      "value": "Authorization API"
+    }]
+  }, {
+    "id": "461591b8-bfc7-4daa-b1be-253a8ba3d430",
+    "name": "40_nationalmap_viewer",
+    "commands": [{
+      "id": "859eb4bc-a833-433b-baac-95cfb8967897",
+      "comment": "",
+      "command": "open",
+      "target": "https://data.gov.au/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f434e58f-6ecf-4217-904d-1de8b9ffb8be",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x849",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1cba4ec1-26e2-42d4-80a4-370a8295e62e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=NationalMap",
+      "targets": [
+        ["linkText=NationalMap", "linkText"],
+        ["css=p:nth-child(8) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'NationalMap')]", "xpath:link"],
+        ["xpath=//a[@href='http://www.nationalmap.gov.au/']", "xpath:href"],
+        ["xpath=//p[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'NationalMap')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "df5ba838-ddcd-49ed-a3e8-e720fb0a1d74",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.tm-close-button__close-btn > .icon",
+      "targets": [
+        ["css=.tm-close-button__close-btn > .icon", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d419bfb-d82b-4922-acce-bd103495030e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tm-close-button__close-btn > .icon",
+      "targets": [
+        ["css=.tm-close-button__close-btn > .icon", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0effd4b-384a-49bc-9d79-ee13e4fe448e",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.tm-close-button__close-btn > .icon",
+      "targets": [
+        ["css=.tm-close-button__close-btn > .icon", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ab95216-d16b-4b55-ae7b-80dea4ce06f4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tjs-side-panel__button",
+      "targets": [
+        ["css=.tjs-side-panel__button", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='ui']/div/div/div/div/div/div[2]/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "39f9f9fb-8157-499b-bed8-80bad376c1fc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tjs-explorer-window__btn--close-modal",
+      "targets": [
+        ["css=.tjs-explorer-window__btn--close-modal", "css:finder"],
+        ["xpath=(//button[@type='button'])[7]", "xpath:attributes"],
+        ["xpath=//div[@id='explorer-panel']/button", "xpath:idRelative"],
+        ["xpath=//main/div/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Done')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }],
   "suites": [{
@@ -1273,6 +1586,6 @@
     "timeout": 300,
     "tests": ["dfc18e6a-5307-4db3-bc05-48afe57a2afd"]
   }],
-  "urls": ["https://data.gov.au/data", "http://localhost:8080/data"],
+  "urls": ["https://data.gov.au/data", "http://localhost:8080/data", "http://ckan-web-23852328.ap-southeast-2.elb.amazonaws.com/data"],
   "plugins": []
 }
