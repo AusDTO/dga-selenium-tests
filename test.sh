@@ -33,8 +33,10 @@ fi
 NAME="selenium-${BROWSER}"
 
 function cleanUp() {
-  docker rm --force selenium-runner || true
   docker rm --force ${NAME} || true
+  docker rm --force selenium-runner || true
+  docker rm --force selenium-firefox || true
+  docker rm --force selenium-chrome || true
 }
 
 cleanUp
@@ -46,7 +48,6 @@ mkdir -p .output
 chmod ugo+rwx .output
 
 docker run --name ${NAME} -d --network host --shm-size="2g" selenium/standalone-${BROWSER}
-sleep 5
 
 docker run --rm --network host --name selenium-runner \
   -v $(pwd)/sides:/home/selenium/sides \
