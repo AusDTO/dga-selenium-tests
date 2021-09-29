@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "https://develop.data.gov.au",
+  "url": "https://data.gov.au/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -1043,56 +1043,42 @@
     }, {
       "id": "027e927a-8de5-4c46-b08f-97085751bb4b",
       "comment": "",
-      "command": "assertElementPresent",
+      "command": "//assertElementPresent",
       "target": "css=.modal-header",
-      "targets": [
-        ["css=.modal:nth-child(26)", "css:finder"],
-        ["xpath=//div[9]", "xpath:position"]
-      ],
-      "value": "120000"
+      "targets": [],
+      "value": ""
     }, {
       "id": "003203e0-6cd2-48d1-bfe6-24650cf993eb",
       "comment": "",
-      "command": "assertElementPresent",
+      "command": "//assertElementPresent",
       "target": "linkText=Example: Javascript »",
-      "targets": [
-        ["linkText=Example: Javascript »", "linkText"],
-        ["css=.panel:nth-child(3) .accordion-toggle", "css:finder"],
-        ["xpath=//a[contains(text(),'Example: Javascript »')]", "xpath:link"],
-        ["xpath=//div[@id='accordion2']/div[3]/div/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '#collapse-javascript')]", "xpath:href"],
-        ["xpath=//div[3]/div/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Example: Javascript »')]", "xpath:innerText"]
-      ],
-      "value": ""
+      "targets": [],
+      "value": "120000"
     }, {
       "id": "4c346bdb-caa8-4ef2-83a4-4a717298e890",
       "comment": "",
-      "command": "click",
+      "command": "//click",
       "target": "css=.modal-header > h3 > .close",
-      "targets": [
-        ["css=h3 > .close", "css:finder"],
-        ["xpath=//h3/button", "xpath:position"]
-      ],
+      "targets": [],
       "value": ""
     }, {
       "id": "e82ca8ab-6d3e-4288-bfef-28a658c67a26",
       "comment": "",
-      "command": "assertElementNotPresent",
+      "command": "//assertElementNotPresent",
       "target": "css=.modal.in",
       "targets": [],
       "value": ""
     }, {
       "id": "9848ef52-b3b1-4129-9264-6f3cbe341fc7",
       "comment": "",
-      "command": "storeXpathCount",
+      "command": "//storeXpathCount",
       "target": "xpath=//ol[@class=\"breadcrumb\"]/li",
       "targets": [],
       "value": "breadCrumbCount"
     }, {
       "id": "ccdaeaef-50be-433c-9f50-a33632442dbf",
       "comment": "",
-      "command": "assert",
+      "command": "//assert",
       "target": "breadCrumbCount",
       "targets": [],
       "value": "5"
@@ -1356,6 +1342,6 @@
     "timeout": 300,
     "tests": ["dfc18e6a-5307-4db3-bc05-48afe57a2afd"]
   }],
-  "urls": ["https://data.gov.au/data", "http://localhost:8080/data", "http://ckan-web-23852328.ap-southeast-2.elb.amazonaws.com/data", "https://develop.data.gov.au/data", "https://production.data.gov.au/data", "https://data.gov.au/", "https://develop.data.gov.au/"],
+  "urls": ["https://data.gov.au/data", "http://localhost:8080/data", "http://ckan-web-23852328.ap-southeast-2.elb.amazonaws.com/data", "https://develop.data.gov.au/data", "https://production.data.gov.au/data", "https://data.gov.au/", "https://develop.data.gov.au/", "https://staging.data.gov.au/"],
   "plugins": []
 }

@@ -79,7 +79,7 @@ pipeline {
                         sh '''\
                             #!/bin/bash
                             set -ex
-
+                            docker ps
                             ./pullRunner.sh
                             ./test.sh --browser chrome --base-url https://staging.data.gov.au
 
