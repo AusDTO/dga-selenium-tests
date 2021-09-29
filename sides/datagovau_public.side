@@ -1,0 +1,1361 @@
+{
+  "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
+  "version": "2.0",
+  "name": "datagovau_public",
+  "url": "https://data.gov.au",
+  "tests": [{
+    "id": "19da0451-d821-4746-b34a-03877c33c028",
+    "name": "01_home_page_content",
+    "commands": [{
+      "id": "03c92c59-7382-498d-99cc-9206c1d381db",
+      "comment": "",
+      "command": "open",
+      "target": "/data/user/_logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d2f91eb0-0dce-4405-974b-7c64ea09b1f5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "2048x2048",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "882690b7-01ef-486c-8c2f-82a0ef65d9af",
+      "comment": "",
+      "command": "clickAt",
+      "target": "linkText=Log in",
+      "targets": [
+        ["linkText=Log in", "linkText"],
+        ["css=.unstyled > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Log in')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/data/user/login')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9037b323-c155-4736-aa03-63a4aab4c33f",
+      "comment": "",
+      "command": "clickAt",
+      "target": "css=.fa-home",
+      "targets": [
+        ["css=.fa-home", "css:finder"],
+        ["xpath=//div[@id='content']/div[2]/ol/li/a/h3/i", "xpath:idRelative"],
+        ["xpath=//h3/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50c47ce8-916b-435f-81b9-5ec5a12a99ee",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.heading",
+      "targets": [
+        ["css=.heading", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Search data')]", "xpath:innerText"]
+      ],
+      "value": "Search data"
+    }, {
+      "id": "80f357af-ddf7-449d-96db-0a01369b894f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.inner li:nth-child(1) > a",
+      "targets": [
+        ["css=.inner li:nth-child(1) > a", "css:finder"],
+        ["xpath=(//a[contains(@href, '/data/dataset')])[5]", "xpath:href"],
+        ["xpath=//div/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f293f8f1-e2e8-48fa-899a-fb9eb95842cb",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "$('a:contains(\"discoverable datasets\")').text().match( / *[0-9\\.]+k.*/).length > 0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4c293946-a1d8-4f8d-bb6b-e80620199d68",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "$('a:contains(\"unpublished datasets\")').text().match( / *[1-9\\.][0-9\\.]+.*/).length > 0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb899b30-6a05-45b4-a2d1-ead67f7b2ace",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Find and use public data')]", "xpath:innerText"]
+      ],
+      "value": "Find and use public data"
+    }, {
+      "id": "f700fee7-b803-4890-91ae-2446cc9e7f93",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//a[@class=\"tag\"]",
+      "targets": [],
+      "value": "tagCount"
+    }, {
+      "id": "e64ff275-5423-4503-adda-121905511757",
+      "comment": "",
+      "command": "assert",
+      "target": "tagCount",
+      "targets": [],
+      "value": "3"
+    }, {
+      "id": "a0bd85f5-bdbc-4e6b-951b-caf34ebe12aa",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.logo > img",
+      "targets": [
+        ["css=.logo > img", "css:finder"],
+        ["xpath=//img[@alt='Australian Government - data.gov.au Logo']", "xpath:img"],
+        ["xpath=//a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "573b0f1c-a9b3-4ff0-976c-dbd2631ffa26",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76a7c557-c823-401d-94aa-165c84b2ae09",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//ul[@class=\"nav nav-pills\"]/li/a",
+      "targets": [],
+      "value": "mainNavLinks"
+    }, {
+      "id": "75f7425e-604b-456c-8603-3198f32b57bc",
+      "comment": "",
+      "command": "assert",
+      "target": "mainNavLinks",
+      "targets": [],
+      "value": "4"
+    }]
+  }, {
+    "id": "3f33fbff-304d-419e-b00a-b74beae38334",
+    "name": "02_navigate_to_datasets",
+    "commands": [{
+      "id": "9016d935-49e0-48ee-a609-045043994770",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3fe185be-3646-4e1e-97a0-7d6fb40ca581",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "2048x2048",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6726acd6-e181-45dc-9b32-89acc3335678",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Datasets",
+      "targets": [
+        ["linkText=Datasets", "linkText"],
+        ["css=.nav > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Datasets')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/data/dataset')]", "xpath:href"],
+        ["xpath=//div/div/nav/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Datasets')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "503c97a0-a29f-43ee-87df-863ebe796409",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["id=field-giant-search", "id"],
+        ["css=#field-giant-search", "css:finder"],
+        ["xpath=//input[@id='field-giant-search']", "xpath:attributes"],
+        ["xpath=//form[@id='dataset-search-form']/div/input", "xpath:idRelative"],
+        ["xpath=//section/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "51ef1a96-a8ba-4aa0-8301-6db3abba2f07",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.module:nth-child(1) > .module-heading",
+      "targets": [
+        ["css=.module:nth-child(1) > .module-heading", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section/h2", "xpath:idRelative"],
+        ["xpath=//section/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,' Organizations')]", "xpath:innerText"]
+      ],
+      "value": "Organizations"
+    }, {
+      "id": "af4ed0ee-0e96-4671-9767-e2693d7dbc64",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.module:nth-child(2) > .module-heading",
+      "targets": [
+        ["css=.module:nth-child(2) > .module-heading", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section[2]/h2", "xpath:idRelative"],
+        ["xpath=//section[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,' Groups')]", "xpath:innerText"]
+      ],
+      "value": "Groups"
+    }, {
+      "id": "b9b9c053-b9a4-4586-8147-486e583d1d91",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.module:nth-child(3) > .module-heading",
+      "targets": [
+        ["css=.module:nth-child(3) > .module-heading", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section[3]/h2", "xpath:idRelative"],
+        ["xpath=//section[3]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,' Tags')]", "xpath:innerText"]
+      ],
+      "value": "Tags"
+    }, {
+      "id": "4319dae7-34b6-413e-8acb-8cd6e6c4b1b1",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.module:nth-child(4) > .module-heading",
+      "targets": [
+        ["css=.module:nth-child(4) > .module-heading", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section[4]/h2", "xpath:idRelative"],
+        ["xpath=//section[4]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,' Formats')]", "xpath:innerText"]
+      ],
+      "value": "Formats"
+    }, {
+      "id": "0c87547c-67fb-4488-9233-aa02b25ff920",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.module:nth-child(5) > .module-heading",
+      "targets": [
+        ["css=.module:nth-child(5) > .module-heading", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section[5]/h2", "xpath:idRelative"],
+        ["xpath=//section[5]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,' Licenses')]", "xpath:innerText"]
+      ],
+      "value": "Licenses"
+    }, {
+      "id": "1e5ab7b6-2b70-4a4c-a37a-b6ec37daf7ca",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "$(':header:contains(\"datasets found\")').text().match( / *[1-9][0-9,]+.*/).length > 0",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3f588ddb-f066-4912-bb42-ffcdeb5b9d2d",
+    "name": "03_navigate_to_organisations",
+    "commands": [{
+      "id": "f6aba1ae-d07d-4125-97d8-225ff0b4e2ec",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e44d73f0-fd2c-4631-a73e-2ff1fa54a767",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "df7105d6-4609-495b-9e73-e408251efcec",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Organisations",
+      "targets": [
+        ["linkText=Organisations", "linkText"],
+        ["css=.nav > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Organisations')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/data/organization')]", "xpath:href"],
+        ["xpath=//div/div/nav/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Organisations')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "43b8cfbb-8ed5-401d-aad0-d0671ff55315",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "$(':header:contains(\"organizations found\")').text().match( / *[1-9][0-9,]+.*/).length > 0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e5477c1d-b90e-4014-b032-f803d20d0d45",
+      "comment": "",
+      "command": "//assertElementPresent",
+      "target": "css=.search-form>.control-order-by>button.btn",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "284c6b77-0243-4bd3-8529-a28871416142",
+    "name": "04_navigate_to_community",
+    "commands": [{
+      "id": "15efc549-81dd-41bb-ac01-9ef5cb163392",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e185c0b1-b999-4f8f-a2cc-ef4d64070db7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f89dfc9e-c1c2-40d9-a1fb-4fe46d6a7631",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Community",
+      "targets": [
+        ["linkText=Community", "linkText"],
+        ["css=.nav > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Community')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'https://community.digital.gov.au/c/open-data')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Community')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3739cdfb-7f0c-433c-a6fd-6c4c0b8d2fe8",
+      "comment": "",
+      "command": "echo",
+      "target": "CSP policy blocking execution on this page.",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "69b7c3f1-927f-48f2-a5eb-22d586a60968",
+      "comment": "",
+      "command": "echo",
+      "target": "It's a firefox issue: https://github.com/SeleniumHQ/selenium-ide/issues/382",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4c0c5ba8-b4bb-473b-a7c6-077411f246ba",
+    "name": "05_navigate_to_about",
+    "commands": [{
+      "id": "142b5f2a-36c1-4a82-9d35-b3872d6e684e",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a97b36fb-7d74-457c-8452-bef000d2774a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8ba62b42-940a-4592-9390-0272304690ff",
+    "name": "01_search_datasets_blank_terms",
+    "commands": [{
+      "id": "b00c568c-414a-40d6-93b3-393bd80e62e2",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "115807d0-96ee-4970-a3a0-51cb43dc64f3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5a9b49a-d8cc-4b8a-98e0-9fb1cfc37014",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "9f1d4358-d27f-4d5a-ac61-5a261c40aaa0",
+      "comment": "",
+      "command": "//if",
+      "target": "document.evaluate( \"//h1[contains(.,'datasets found')]\",document,null,  XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null).snapshotLength>0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac11edd6-dd0a-4c70-9689-d3a2aa14cae8",
+      "comment": "",
+      "command": "//storeText",
+      "target": "xpath=//h1[contains(.,'datasets found')]",
+      "targets": [],
+      "value": "totalDatasetsText"
+    }, {
+      "id": "4d40696f-ec18-4ede-8dfb-11dafcdf7dc4",
+      "comment": "",
+      "command": "//else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "777355b5-a9fb-43ce-b73f-789b26925899",
+      "comment": "",
+      "command": "//storeText",
+      "target": "xpath=//h2[contains(.,'datasets found')]",
+      "targets": [],
+      "value": "totalDatasetsText"
+    }, {
+      "id": "b008b9e1-c68d-4de3-a9f9-26798820b022",
+      "comment": "",
+      "command": "//end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bd49a188-cfe0-485f-bfc4-003bfb23abbc",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "return ${totalDatasetsText}.match(/\\d+/g).join(\"\") >= 5400",
+      "targets": [],
+      "value": "validNumberOfDatasets"
+    }, {
+      "id": "64fafa53-64ef-4415-87d7-78f031ed3d47",
+      "comment": "",
+      "command": "//assert",
+      "target": "validNumberOfDatasets",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "603223eb-aa1b-4558-afb9-05b9458794ef",
+    "name": "02_select_organisation_filter",
+    "commands": [{
+      "id": "f78d960a-0128-46d0-82d4-9a28e809389b",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "392e3e82-d694-4750-8169-a903a54454af",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "2048x2048",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e24fce6b-05cb-4871-a331-c2582f95420a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Datasets",
+      "targets": [
+        ["linkText=Datasets", "linkText"],
+        ["css=.nav > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Datasets')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/data/dataset')]", "xpath:href"],
+        ["xpath=//div/div/nav/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Datasets')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a1eb3b3-aae8-45b8-afd7-5d667e6ff6be",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//section/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf633c0a-19f6-4721-8d24-45bea74f97ed",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.module:nth-child(1) .nav-item:nth-child(1) span",
+      "targets": [
+        ["css=.module:nth-child(1) .nav-item:nth-child(1) span", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section/nav/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Bioregional Assessm... (1766)')]", "xpath:innerText"]
+      ],
+      "value": "firstOrg"
+    }, {
+      "id": "6084781f-60a1-4a72-80b9-0a961f2da1b7",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "return ${firstOrg}.replace(\"...\",\"\").match(/[a-zA-Z]+/g).join(\" \")",
+      "targets": [],
+      "value": "firstOrgText"
+    }, {
+      "id": "c6d074ad-f923-48c9-8fbe-f74b6748ba0c",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "$(':header:contains(\"datasets found\")').text().match( / *[1-9][0-9,]+.*/).length > 0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "acf6f04e-a268-4cbc-8fd7-1bf61802e307",
+      "comment": "",
+      "command": "//echo",
+      "target": "${firstOrgText}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d6cfa895-5219-48ee-b66d-f56075d3bfd3",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//span[@class=\"filtered pill\"]",
+      "targets": [],
+      "value": "filteredTagCount"
+    }, {
+      "id": "c71e16f3-e600-41dc-8e98-da120ef1bd9f",
+      "comment": "",
+      "command": "echo",
+      "target": "${filteredTagCount}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "21ede7ac-3291-4e42-b99c-f2971faf9cd0",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "return ${filteredTagCount} === \"1\"",
+      "targets": [],
+      "value": "FilterTagMatch"
+    }, {
+      "id": "5c0d1c8e-e057-4ed7-9fcb-8fb5e6396d97",
+      "comment": "",
+      "command": "//echo",
+      "target": "Test adding another filter",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "36d8a5cf-1bfe-41af-ac8a-de66e1d97654",
+      "comment": "",
+      "command": "//storeText",
+      "target": "css=.module:nth-child(3) .nav-item:nth-child(1) span",
+      "targets": [],
+      "value": "secondaryFilter"
+    }, {
+      "id": "dd38f396-ba73-4a98-9c6d-0f44e6f5da04",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "return ${secondaryFilter}.replace(\"...\",\"\").match(/[a-zA-Z]+/g).join(\" \")",
+      "targets": [],
+      "value": "secondaryFilterText"
+    }, {
+      "id": "81f706dd-674f-4f36-b237-8940ab6b5ad7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.module:nth-child(3) .nav-item:nth-child(1) span",
+      "targets": [
+        ["css=.module:nth-child(3) .nav-item:nth-child(1) span", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section[3]/nav/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//section[3]/nav/ul/li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'geoscientificInform... (766)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "45596130-c64d-44ca-a2cb-616f11b29f9c",
+    "name": "03_search_filter_water_data",
+    "commands": [{
+      "id": "6494a1ef-ac28-4b40-8849-1fc9a91c84f3",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "773a3c2a-bb3b-43e1-b4cb-d57dbcd00a03",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x1024",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f7222a89-583d-4fa6-b6c3-cdbeda218339",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "water"
+    }, {
+      "id": "9f9a2856-0540-4089-8f33-ac7429987a41",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "c34a7ff2-dcfb-430d-866c-cb8d991eb269",
+      "comment": "",
+      "command": "//storeText",
+      "target": "css=.module:nth-child(1) .nav-item:nth-child(1) span",
+      "targets": [],
+      "value": "firstOrg"
+    }, {
+      "id": "c5a03d8a-f87d-41ac-a077-071f2ab059fc",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "return ${firstOrg}.replace(\"...\",\"\").match(/[a-zA-Z]+/g).join(\" \")",
+      "targets": [],
+      "value": "firstOrgText"
+    }, {
+      "id": "3f68e220-18b1-463e-a474-8af90dfa3560",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//span[@class=\"filtered pill\"]",
+      "targets": [],
+      "value": "filteredTagCount"
+    }, {
+      "id": "67e4feb9-5476-42e8-bdf9-ad1946b195b2",
+      "comment": "",
+      "command": "echo",
+      "target": "Test adding another filter",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef804931-d2b5-4bcd-b666-c8edae156f29",
+      "comment": "",
+      "command": "//storeText",
+      "target": "css=.module:nth-child(3) .nav-item:nth-child(1) span",
+      "targets": [],
+      "value": "secondaryFilter"
+    }, {
+      "id": "de931a3e-9a0e-44c4-a255-6f2d0bc9b5e5",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "$(':header:contains(\"datasets found for \")').text().match( / *[1-9][0-9,]+.*/).length > 0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca3cba03-cb27-4e21-9d89-cd7b77d1af7a",
+      "comment": "",
+      "command": "//executeScript",
+      "target": "return ${secondaryFilter}.replace(\"...\",\"\").match(/[a-zA-Z]+/g).join(\" \")",
+      "targets": [],
+      "value": "secondaryFilterText"
+    }]
+  }, {
+    "id": "4e7ad37a-d004-46e2-9724-a40284c5584c",
+    "name": "04_test_collapse_filters",
+    "commands": [{
+      "id": "a7da07d3-4b68-479b-89a7-31399429b5f2",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "30aee553-c749-49a3-ad76-0fb488930a9e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f34f0326-e9b3-415c-91cc-328a7a44eb41",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "49103ef6-371f-49b2-8477-7a6284e74b6c",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "0120e138-b565-46cf-a383-c32703cf275a",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//li[@class=\"nav-item\"]",
+      "targets": [],
+      "value": "filterCountBefore"
+    }, {
+      "id": "387bd3de-1f92-48e5-a83f-fdc40161502c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Show More Organizations",
+      "targets": [
+        ["linkText=Show More Organizations", "linkText"],
+        ["css=.module:nth-child(1) .read-more", "css:finder"],
+        ["xpath=//a[contains(text(),'Show More Organizations')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section/p/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/data/dataset?q=&sort=extras_harvest_portal+asc%2C+score+desc&_organization_limit=0')]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Show More Organizations')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d50ba349-7c08-4a31-b418-83d0c5502a4f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=Show Only Popular Organizations",
+      "targets": [
+        ["linkText=Show Only Popular Organizations", "linkText"],
+        ["css=.module:nth-child(1) .read-more", "css:finder"],
+        ["xpath=//a[contains(text(),'Show Only Popular Organizations')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section/p/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/data/dataset?q=&sort=extras_harvest_portal+asc%2C+score+desc')])[6]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Show Only Popular Organizations')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd10b55a-ea85-4076-a528-6bca2dc7548a",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//li[@class=\"nav-item\"]",
+      "targets": [],
+      "value": "filterCountAfter"
+    }, {
+      "id": "f655c70c-375f-468b-bbc2-c13077082488",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${filterCountAfter} > ${filterCountBefore}",
+      "targets": [],
+      "value": "filterCountGreater"
+    }, {
+      "id": "b6a96a82-d61a-4fda-a9e4-f8969b880f90",
+      "comment": "",
+      "command": "assert",
+      "target": "filterCountGreater",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "1d004565-8c52-4a9b-b489-e52be369b2ae",
+    "name": "05_test_format_filter",
+    "commands": [{
+      "id": "c20516d8-d999-46ca-8acc-ad7003f45dde",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f3d01ebd-c263-4c23-971b-00493e1386de",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0c86bcef-8e2a-4b9c-a813-447fd5c59895",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5621e8a8-fc30-4a9b-b228-5f8f13435b06",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "holiday"
+    }, {
+      "id": "7794a1eb-8a7c-4e70-946e-010c588267cc",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "d26380ab-5e8f-4f4b-8e20-cdcc121ada30",
+      "comment": "",
+      "command": "click",
+      "target": "css=.module:nth-child(4) .nav-item:nth-child(1) span",
+      "targets": [
+        ["css=.module:nth-child(4) .nav-item:nth-child(1) span", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/aside/div/div/section[4]/nav/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//section[4]/nav/ul/li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'CSV (8)')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8c949e0-4bb9-4794-8312-ee16ae9ea5b1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.facet",
+      "targets": [
+        ["css=.facet", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/form/p/span", "xpath:idRelative"],
+        ["xpath=//p/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Formats:')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9604a8e7-728a-4180-9f30-87d2e5d25dd4",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.facet",
+      "targets": [],
+      "value": "Formats:"
+    }, {
+      "id": "3df76472-3854-4e48-a9b2-4da047f0fdda",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=CSV",
+      "targets": [
+        ["linkText=CSV", "linkText"],
+        ["css=.dataset-item:nth-child(1) li:nth-child(2) > .label", "css:finder"],
+        ["xpath=//a[contains(text(),'CSV')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/ul/li/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/data/dataset/australian-holidays-machine-readable-dataset')])[3]", "xpath:href"],
+        ["xpath=//li/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'CSV')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "993ea8fa-0da2-436e-9cd4-8d30d4a5a65e",
+    "name": "01_test_dataset_click",
+    "commands": [{
+      "id": "abee0680-73f2-4891-bc15-b139c8a8c87c",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d6a2aa3c-209c-4976-a319-c5eced5b14c1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1024x768",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82d3c3a1-b8c3-44bc-89f1-5ec32a9f2ff8",
+      "comment": "",
+      "command": "type",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "holiday"
+    }, {
+      "id": "943b9d41-9c4a-4cd8-b98a-fb2d353ae6f8",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "1af4c123-435a-46bd-8b0f-ac15e65fd5ec",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=Australian Public Holidays Dates Machine Readable Dataset",
+      "targets": [
+        ["linkText=Australian Public Holidays Dates Machine Readable Dataset", "linkText"],
+        ["css=.dataset-item:nth-child(2) > .dataset-content a", "css:finder"],
+        ["xpath=//a[contains(text(),'Australian Public Holidays Dates Machine Readable Dataset')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/ul/li[2]/div/h3/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/data/dataset/australian-holidays-machine-readable-dataset')]", "xpath:href"],
+        ["xpath=//li[2]/div/h3/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Australian Public Holidays Dates Machine Readable Dataset')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "edea2ceb-493a-40b3-b28c-0e99dfe4c4b1",
+      "comment": "",
+      "command": "assertText",
+      "target": "linkText=Australian Public Holidays Dates Machine Readable Dataset",
+      "targets": [
+        ["linkText=Australian Public Holidays Dates Machine Readable Dataset", "linkText"],
+        ["css=.dataset-item:nth-child(2) > .dataset-content a", "css:finder"],
+        ["xpath=//a[contains(text(),'Australian Public Holidays Dates Machine Readable Dataset')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/ul/li[2]/div/h3/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/data/dataset/australian-holidays-machine-readable-dataset')]", "xpath:href"],
+        ["xpath=//li[2]/div/h3/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Australian Public Holidays Dates Machine Readable Dataset')]", "xpath:innerText"]
+      ],
+      "value": "Australian Public Holidays Dates Machine Readable Dataset"
+    }, {
+      "id": "ba8afd39-c921-4d69-a8b9-d0e3f540047e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Australian Public Holidays Dates Machine Readable Dataset",
+      "targets": [
+        ["linkText=Australian Public Holidays Dates Machine Readable Dataset", "linkText"],
+        ["css=.dataset-item:nth-child(2) > .dataset-content a", "css:finder"],
+        ["xpath=//a[contains(text(),'Australian Public Holidays Dates Machine Readable Dataset')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/ul/li[2]/div/h3/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/data/dataset/australian-holidays-machine-readable-dataset')]", "xpath:href"],
+        ["xpath=//li[2]/div/h3/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Australian Public Holidays Dates Machine Readable Dataset')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "05daf85a-4477-4235-ab0c-1c5e6277ed81",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//li[@class=\"resource-item\"]",
+      "targets": [],
+      "value": "numberOfResources"
+    }, {
+      "id": "ced86a14-e670-4b55-8425-98b7a7dc664a",
+      "comment": "",
+      "command": "assert",
+      "target": "numberOfResources",
+      "targets": [],
+      "value": "9"
+    }, {
+      "id": "6950d0d8-33e3-45ff-b2dd-172372246e34",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//ul[@class=\"nav nav-tabs\"]/li",
+      "targets": [],
+      "value": "tabCount"
+    }, {
+      "id": "eb000aeb-336c-4684-bd6e-97ae8279eb99",
+      "comment": "",
+      "command": "assert",
+      "target": "tabCount",
+      "targets": [],
+      "value": "3"
+    }, {
+      "id": "bff49a69-d26f-45a1-a603-f4963562d1bf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.resource-item:nth-child(1) > .heading",
+      "targets": [
+        ["css=.resource-item:nth-child(1) > .heading", "css:finder"],
+        ["xpath=//section[@id='dataset-resources']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/data/dataset/australian-holidays-machine-readable-dataset/resource/33673aca-0857-42e5-b8f0-9981b4755686')]", "xpath:href"],
+        ["xpath=//section/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c303718-8337-487d-80ba-5d04fd0ab0cb",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=Data API",
+      "targets": [
+        ["linkText=Data API", "linkText"],
+        ["css=.btn-success", "css:finder"],
+        ["xpath=//a[contains(text(),'Data API')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/section/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/data/api/1/util/snippet/api_info.html?resource_id=33673aca-0857-42e5-b8f0-9981b4755686')]", "xpath:href"],
+        ["xpath=//div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Data API')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b06328eb-1a7b-49f6-b58e-aa418b0ddc86",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=Download",
+      "targets": [
+        ["linkText=Download", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/section/div/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://data.gov.au/data/dataset/b1bc6077-dadd-4f61-9f8c-002ab2cdff10/resource/33673aca-0857-42e5-b8f0-9981b4755686/download/australian_public_holidays_2021_2022.csv')]", "xpath:href"],
+        ["xpath=//div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Download')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b90364a-5dc8-4a98-83d8-674c01a2f4da",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//table",
+      "targets": [],
+      "value": "tableCount"
+    }, {
+      "id": "51ca5507-6b18-41c1-853b-a7b1d09a4016",
+      "comment": "",
+      "command": "assert",
+      "target": "tableCount",
+      "targets": [],
+      "value": "2"
+    }, {
+      "id": "af3e8c61-d7a0-4091-a025-600f9b4889ec",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Data API",
+      "targets": [
+        ["linkText=Data API", "linkText"],
+        ["css=.btn-success", "css:finder"],
+        ["xpath=//a[contains(text(),'Data API')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/section/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/data/api/1/util/snippet/api_info.html?resource_id=33673aca-0857-42e5-b8f0-9981b4755686')]", "xpath:href"],
+        ["xpath=//div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Data API')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "027e927a-8de5-4c46-b08f-97085751bb4b",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.modal-header",
+      "targets": [
+        ["css=.modal:nth-child(26)", "css:finder"],
+        ["xpath=//div[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "003203e0-6cd2-48d1-bfe6-24650cf993eb",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=Example: Javascript »",
+      "targets": [
+        ["linkText=Example: Javascript »", "linkText"],
+        ["css=.panel:nth-child(3) .accordion-toggle", "css:finder"],
+        ["xpath=//a[contains(text(),'Example: Javascript »')]", "xpath:link"],
+        ["xpath=//div[@id='accordion2']/div[3]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#collapse-javascript')]", "xpath:href"],
+        ["xpath=//div[3]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Example: Javascript »')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c346bdb-caa8-4ef2-83a4-4a717298e890",
+      "comment": "",
+      "command": "click",
+      "target": "css=.modal-header > h3 > .close",
+      "targets": [
+        ["css=h3 > .close", "css:finder"],
+        ["xpath=//h3/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e82ca8ab-6d3e-4288-bfef-28a658c67a26",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "css=.modal.in",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9848ef52-b3b1-4129-9264-6f3cbe341fc7",
+      "comment": "",
+      "command": "storeXpathCount",
+      "target": "xpath=//ol[@class=\"breadcrumb\"]/li",
+      "targets": [],
+      "value": "breadCrumbCount"
+    }, {
+      "id": "ccdaeaef-50be-433c-9f50-a33632442dbf",
+      "comment": "",
+      "command": "assert",
+      "target": "breadCrumbCount",
+      "targets": [],
+      "value": "5"
+    }]
+  }, {
+    "id": "dfc18e6a-5307-4db3-bc05-48afe57a2afd",
+    "name": "99_MAGDA Home",
+    "commands": [{
+      "id": "a985c195-0b9f-4406-8360-b75d04a95c94",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "12be2a13-2f94-47d6-ba09-6808ba36af7f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "2048x2048",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1d211f5-d724-4c10-bfed-523a9937b49a",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "e0e26f45-0043-4e43-baa8-aa72c24a00ba",
+      "comment": "",
+      "command": "open",
+      "target": "../",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "6c3af344-53e6-40de-a56b-8f4da0bd3c2e",
+    "name": "10_support_email",
+    "commands": [{
+      "id": "12b37e0e-a8f1-475c-ac68-46f631eb4164",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "848f1143-e7f1-48a1-8279-4dddfc81c546",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x895",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39b2996a-2895-4cb2-9ca8-57a5930fda14",
+      "comment": "",
+      "command": "click",
+      "target": "css=.au-footer__navigation:nth-child(1) li:nth-child(3)",
+      "targets": [
+        ["css=.au-footer__navigation:nth-child(1) li:nth-child(3)", "css:finder"],
+        ["xpath=//footer/div/nav/ul/li[3]", "xpath:position"],
+        ["xpath=//li[contains(.,'Privacy Policy')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2daf8da2-9f90-4733-a153-15180d559387",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Email",
+      "targets": [
+        ["linkText=Email", "linkText"],
+        ["css=p:nth-child(18) > a:nth-child(1)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Email')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, 'mailto:data@digital.gov.au')])[2]", "xpath:href"],
+        ["xpath=//p[11]/a", "xpath:position"]
+      ],
+      "value": "Email"
+    }]
+  }, {
+    "id": "a549faee-1a14-479e-827b-3e6bad66f19f",
+    "name": "11_support_toolkit",
+    "commands": [{
+      "id": "ac2a39a3-864e-4a64-888f-5fc3a8f1ed86",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28847ba4-f527-4267-842f-f85e15713068",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x895",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "33fbceb8-f4f3-4756-9c10-64ac6008a1fc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Open Data Toolkit",
+      "targets": [
+        ["linkText=Open Data Toolkit", "linkText"],
+        ["css=p > a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Open Data Toolkit')]", "xpath:link"],
+        ["xpath=//a[@href='http://toolkit.data.gov.au/']", "xpath:href"],
+        ["xpath=//p[11]/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Open Data Toolkit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d347db6c-ba07-4af8-9bf0-bd8a84c53c7d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1:nth-child(1)",
+      "targets": [
+        ["css=h1:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='mw-content-text']/div/h1", "xpath:idRelative"],
+        ["xpath=//div[4]/div/h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Open Data Toolkit')]", "xpath:innerText"]
+      ],
+      "value": "Open Data Toolkit"
+    }]
+  }, {
+    "id": "461591b8-bfc7-4daa-b1be-253a8ba3d430",
+    "name": "40_nationalmap_viewer",
+    "commands": [{
+      "id": "859eb4bc-a833-433b-baac-95cfb8967897",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f434e58f-6ecf-4217-904d-1de8b9ffb8be",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x849",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1cba4ec1-26e2-42d4-80a4-370a8295e62e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=NationalMap",
+      "targets": [
+        ["linkText=NationalMap", "linkText"],
+        ["css=p:nth-child(8) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'NationalMap')]", "xpath:link"],
+        ["xpath=//a[@href='http://www.nationalmap.gov.au/']", "xpath:href"],
+        ["xpath=//p[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'NationalMap')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "df5ba838-ddcd-49ed-a3e8-e720fb0a1d74",
+      "comment": "",
+      "command": "//mouseOver",
+      "target": "css=.tm-close-button__close-btn > .icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d419bfb-d82b-4922-acce-bd103495030e",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.tm-close-button__close-btn > .icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f0effd4b-384a-49bc-9d79-ee13e4fe448e",
+      "comment": "",
+      "command": "//mouseOut",
+      "target": "css=.tm-close-button__close-btn > .icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ab95216-d16b-4b55-ae7b-80dea4ce06f4",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.tjs-side-panel__button",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39f9f9fb-8157-499b-bed8-80bad376c1fc",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.tjs-explorer-window__btn--close-modal",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "084e1571-8295-4bef-ad78-20a5f781226e",
+    "name": "20_community_page",
+    "commands": [{
+      "id": "470b9ab1-9f0e-4202-8427-66a9f760df04",
+      "comment": "",
+      "command": "open",
+      "target": "/data",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9143dde-ed71-483d-bdb9-c69c11e66d69",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "2048x2048",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e36afa37-e128-40ab-8028-018a13f74257",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Community",
+      "targets": [
+        ["linkText=Community", "linkText"],
+        ["css=.nav > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Community')]", "xpath:link"],
+        ["xpath=//div[@id='main-navigation-toggle']/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://community.digital.gov.au/c/open-data')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Community')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "fd5b39a2-33b0-40a5-a5fc-ac70dd0fc14b",
+    "name": "Home page",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["19da0451-d821-4746-b34a-03877c33c028", "3f33fbff-304d-419e-b00a-b74beae38334", "284c6b77-0243-4bd3-8529-a28871416142", "4c0c5ba8-b4bb-473b-a7c6-077411f246ba"]
+  }, {
+    "id": "8665c080-52ce-4148-9b64-ebbadaafe95c",
+    "name": "Search page",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8ba62b42-940a-4592-9390-0272304690ff", "603223eb-aa1b-4558-afb9-05b9458794ef", "45596130-c64d-44ca-a2cb-616f11b29f9c", "4e7ad37a-d004-46e2-9724-a40284c5584c", "1d004565-8c52-4a9b-b489-e52be369b2ae"]
+  }, {
+    "id": "0e16db9a-685d-4108-b921-9fcb8c54fcd5",
+    "name": "Clicking dataset",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["993ea8fa-0da2-436e-9cd4-8d30d4a5a65e"]
+  }, {
+    "id": "ee530704-354e-4768-8149-121ed9b0fa03",
+    "name": "Organisations",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3f588ddb-f066-4912-bb42-ffcdeb5b9d2d"]
+  }, {
+    "id": "912ed3dc-9ae0-4701-8fab-84fbb906891f",
+    "name": "MAGDA",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["dfc18e6a-5307-4db3-bc05-48afe57a2afd"]
+  }],
+  "urls": ["https://data.gov.au/data", "http://localhost:8080/data", "http://ckan-web-23852328.ap-southeast-2.elb.amazonaws.com/data", "https://develop.data.gov.au/data", "https://production.data.gov.au/data", "https://data.gov.au/"],
+  "plugins": []
+}
