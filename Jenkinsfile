@@ -78,8 +78,13 @@ pipeline {
                     steps {
                         sh '''\
                             #!/bin/bash
-                            set -ex
                             docker ps
+                            docker images
+                        '''.stripIndent()
+
+                        sh '''\
+                            #!/bin/bash
+                            set -ex
                             ./pullRunner.sh
                             ./test.sh --browser chrome --base-url https://staging.data.gov.au
 
