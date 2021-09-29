@@ -46,6 +46,7 @@ mkdir -p .output
 chmod ugo+rwx .output
 
 docker run --name ${NAME} -d --network host --shm-size="2g" selenium/standalone-${BROWSER}
+sleep 5
 
 docker run --rm --network host --name selenium-runner \
   -v $(pwd)/sides:/home/selenium/sides \
