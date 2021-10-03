@@ -756,14 +756,14 @@
     }, {
       "id": "f655c70c-375f-468b-bbc2-c13077082488",
       "comment": "",
-      "command": "//executeScript",
+      "command": "executeScript",
       "target": "return ${filterCountAfter} > ${filterCountBefore}",
       "targets": [],
       "value": "filterCountGreater"
     }, {
       "id": "b6a96a82-d61a-4fda-a9e4-f8969b880f90",
       "comment": "",
-      "command": "//assert",
+      "command": "assert",
       "target": "filterCountGreater",
       "targets": [],
       "value": "true"
