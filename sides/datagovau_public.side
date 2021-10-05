@@ -973,7 +973,7 @@
     }, {
       "id": "ced86a14-e670-4b55-8425-98b7a7dc664a",
       "comment": "",
-      "command": "assert",
+      "command": "//assert",
       "target": "numberOfResources",
       "targets": [],
       "value": "9"
