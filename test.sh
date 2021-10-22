@@ -33,10 +33,12 @@ fi
 NAME="selenium-${BROWSER}"
 
 function cleanUp() {
-  docker rm --force ${NAME} || true
-  docker rm --force selenium-runner || true
-  docker rm --force selenium-firefox || true
-  docker rm --force selenium-chrome || true
+  set +e
+  docker rm --force ${NAME} > /dev/null 2>&1
+  docker rm --force selenium-runner > /dev/null 2>&1
+  docker rm --force selenium-firefox > /dev/null 2>&1
+  docker rm --force selenium-chrome > /dev/null 2>&1
+  set -e
 }
 
 cleanUp
@@ -48,6 +50,21 @@ mkdir -p .output
 chmod ugo+rwx .output
 
 docker run --name ${NAME} -d --network host --shm-size="2g" selenium/standalone-${BROWSER}
+
+# Turn off echo so dots work. 
+set +x
+
+endSeconds=$((SECONDS + 120))
+until $(curl --output /dev/null --silent --head --fail "127.0.0.1:4444" ); do
+  printf '.'
+  sleep 1
+  if [[ $SECONDS -gt ${endSeconds} ]]; then
+    echo "Timed out waiting for the selenium to start"
+    docker logs ${NAME}
+    exit 1
+  fi
+done
+set -x
 
 docker run --rm --network host --name selenium-runner \
   -v $(pwd)/sides:/home/selenium/sides \
