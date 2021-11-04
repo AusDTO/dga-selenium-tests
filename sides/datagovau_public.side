@@ -967,14 +967,14 @@
       "id": "ff2550c2-686f-4bc9-a86d-4831a3f79cc2",
       "comment": "",
       "command": "waitForElementPresent",
-      "target": "xpath=//h1[contains(.,'Australian Public Holidays Dates Machine Readable Dataset')]", "xpath:innerText",
+      "target": "xpath=//h1[contains(.,'Australian Public Holidays Dates Machine Readable Dataset')]",
       "targets": [
         ["css=h1:nth-child(4)", "css:finder"],
         ["xpath=//div[@id='content']/div[3]/div/article/div/h1", "xpath:idRelative"],
         ["xpath=//h1", "xpath:position"],
         ["xpath=//h1[contains(.,'Australian Public Holidays Dates Machine Readable Dataset')]", "xpath:innerText"]
       ],
-      "value": "60000"
+      "value": "30000"
     }, {
       "id": "05daf85a-4477-4235-ab0c-1c5e6277ed81",
       "comment": "",
