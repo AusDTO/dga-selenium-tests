@@ -66,6 +66,8 @@ until $(curl --output /dev/null --silent --head --fail "127.0.0.1:4444"); do
 done
 set -x
 
+sleep 1
+
 docker run --rm --network host --name selenium-runner \
   -v $(pwd)/sides:/home/selenium/sides \
   -v $(pwd)/.output:/home/selenium/output \
