@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "https://develop.data.gov.au/",
+  "url": "https://data.gov.au/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -964,6 +964,18 @@
       ],
       "value": ""
     }, {
+      "id": "ff2550c2-686f-4bc9-a86d-4831a3f79cc2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//h1[contains(.,'Australian Public Holidays Dates Machine Readable Dataset')]",
+      "targets": [
+        ["css=h1:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/div/article/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Australian Public Holidays Dates Machine Readable Dataset')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
       "id": "05daf85a-4477-4235-ab0c-1c5e6277ed81",
       "comment": "",
       "command": "storeXpathCount",
@@ -973,7 +985,7 @@
     }, {
       "id": "ced86a14-e670-4b55-8425-98b7a7dc664a",
       "comment": "",
-      "command": "//assert",
+      "command": "assert",
       "target": "numberOfResources",
       "targets": [],
       "value": "9"
@@ -1006,18 +1018,10 @@
     }, {
       "id": "4c303718-8337-487d-80ba-5d04fd0ab0cb",
       "comment": "",
-      "command": "assertElementPresent",
+      "command": "waitForElementPresent",
       "target": "linkText=Data API",
-      "targets": [
-        ["linkText=Data API", "linkText"],
-        ["css=.btn-success", "css:finder"],
-        ["xpath=//a[contains(text(),'Data API')]", "xpath:link"],
-        ["xpath=//div[@id='content']/div[3]/section/div/div/ul/li[2]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/data/api/1/util/snippet/api_info.html?resource_id=33673aca-0857-42e5-b8f0-9981b4755686')]", "xpath:href"],
-        ["xpath=//div/ul/li[2]/a", "xpath:position"],
-        ["xpath=//a[contains(.,' Data API')]", "xpath:innerText"]
-      ],
-      "value": ""
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "b06328eb-1a7b-49f6-b58e-aa418b0ddc86",
       "comment": "",
@@ -1064,42 +1068,42 @@
     }, {
       "id": "027e927a-8de5-4c46-b08f-97085751bb4b",
       "comment": "",
-      "command": "//assertElementPresent",
+      "command": "waitForElementPresent",
       "target": "css=.modal-header",
       "targets": [],
-      "value": ""
+      "value": "30000"
     }, {
       "id": "003203e0-6cd2-48d1-bfe6-24650cf993eb",
       "comment": "",
-      "command": "//assertElementPresent",
+      "command": "assertElementPresent",
       "target": "linkText=Example: Javascript »",
       "targets": [],
       "value": "120000"
     }, {
       "id": "4c346bdb-caa8-4ef2-83a4-4a717298e890",
       "comment": "",
-      "command": "//click",
+      "command": "click",
       "target": "css=.modal-header > h3 > .close",
       "targets": [],
       "value": ""
     }, {
       "id": "e82ca8ab-6d3e-4288-bfef-28a658c67a26",
       "comment": "",
-      "command": "//assertElementNotPresent",
+      "command": "assertElementNotPresent",
       "target": "css=.modal.in",
       "targets": [],
       "value": ""
     }, {
       "id": "9848ef52-b3b1-4129-9264-6f3cbe341fc7",
       "comment": "",
-      "command": "//storeXpathCount",
+      "command": "storeXpathCount",
       "target": "xpath=//ol[@class=\"breadcrumb\"]/li",
       "targets": [],
       "value": "breadCrumbCount"
     }, {
       "id": "ccdaeaef-50be-433c-9f50-a33632442dbf",
       "comment": "",
-      "command": "//assert",
+      "command": "assert",
       "target": "breadCrumbCount",
       "targets": [],
       "value": "5"

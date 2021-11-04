@@ -15,7 +15,7 @@ while [[ $# -gt 0 ]]; do
   --base-url)
     shift # past argument
     BASE_URL="$1"
-    ;;    
+    ;;
   *)
     echo "Invalid option $1"
     exit 1
@@ -34,10 +34,10 @@ NAME="selenium-${BROWSER}"
 
 function cleanUp() {
   set +e
-  docker rm --force ${NAME} > /dev/null 2>&1
-  docker rm --force selenium-runner > /dev/null 2>&1
-  docker rm --force selenium-firefox > /dev/null 2>&1
-  docker rm --force selenium-chrome > /dev/null 2>&1
+  docker rm --force ${NAME} >/dev/null 2>&1
+  docker rm --force selenium-runner >/dev/null 2>&1
+  docker rm --force selenium-firefox >/dev/null 2>&1
+  docker rm --force selenium-chrome >/dev/null 2>&1
   set -e
 }
 
@@ -51,11 +51,11 @@ chmod ugo+rwx .output
 
 docker run --name ${NAME} -d --network host --shm-size="2g" selenium/standalone-${BROWSER}
 
-# Turn off echo so dots work. 
+# Turn off echo so dots work.
 set +x
 
 endSeconds=$((SECONDS + 120))
-until $(curl --output /dev/null --silent --head --fail "127.0.0.1:4444" ); do
+until $(curl --output /dev/null --silent --head --fail "127.0.0.1:4444"); do
   printf '.'
   sleep 1
   if [[ $SECONDS -gt ${endSeconds} ]]; then
@@ -65,6 +65,8 @@ until $(curl --output /dev/null --silent --head --fail "127.0.0.1:4444" ); do
   fi
 done
 set -x
+
+sleep 1
 
 docker run --rm --network host --name selenium-runner \
   -v $(pwd)/sides:/home/selenium/sides \

@@ -23,7 +23,17 @@ pipeline {
         
         stage('QA') {
             parallel {
-                
+                stage('scan-secrets'){
+                    agent {
+                        docker {
+                            image TOOLS_IMAGE
+                            args TOOLS_ARGS
+                        }
+                    }
+                    steps {
+                        sh '/home/tools/secrets_scan.sh'
+                    }
+                }
                 stage('production-chrome') {
                     agent {
                         docker {
