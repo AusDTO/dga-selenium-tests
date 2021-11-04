@@ -31,7 +31,7 @@ pipeline {
                         }
                     }
                     steps {
-                        sh './secrets_scan.sh'
+                        sh '/home/tools/secrets_scan.sh'
                     }
                 }
                 stage('production-chrome') {
