@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "https://data.gov.au/",
+  "url": "https://develop.data.gov.au/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -999,7 +999,7 @@
     }, {
       "id": "eb000aeb-336c-4684-bd6e-97ae8279eb99",
       "comment": "",
-      "command": "assert",
+      "command": "//assert",
       "target": "tabCount",
       "targets": [],
       "value": "3"
@@ -1079,6 +1079,13 @@
       "target": "linkText=Example: Javascript »",
       "targets": [],
       "value": "120000"
+    }, {
+      "id": "2e66d638-a28a-4d13-a03f-cdb5d78281da",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.modal-header > h3 > .close",
+      "targets": [],
+      "value": "60000"
     }, {
       "id": "4c346bdb-caa8-4ef2-83a4-4a717298e890",
       "comment": "",
@@ -1367,6 +1374,12 @@
     "timeout": 300,
     "tests": ["dfc18e6a-5307-4db3-bc05-48afe57a2afd"]
   }],
-  "urls": ["https://data.gov.au/data", "http://localhost:8080/data", "http://ckan-web-23852328.ap-southeast-2.elb.amazonaws.com/data", "https://develop.data.gov.au/data", "https://production.data.gov.au/data", "https://data.gov.au/", "https://develop.data.gov.au/", "https://staging.data.gov.au/"],
+  "urls": [
+    "https://develop.data.gov.au/", 
+    "https://production.data.gov.au/", 
+    "https://staging.data.gov.au/", 
+    "https://data.gov.au/", 
+    "http://localhost/"
+  ],
   "plugins": []
 }
