@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "https://develop.data.gov.au/",
+  "url": "http://localhost/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -890,6 +890,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "6c311a28-f753-44ee-aa8b-3a74062a307a",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "82d3c3a1-b8c3-44bc-89f1-5ec32a9f2ff8",
       "comment": "",
       "command": "type",
@@ -1135,7 +1142,7 @@
     }, {
       "id": "c1d211f5-d724-4c10-bfed-523a9937b49a",
       "comment": "",
-      "command": "waitForElementEditable",
+      "command": "waitForElementPresent",
       "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
@@ -1374,12 +1381,6 @@
     "timeout": 300,
     "tests": ["dfc18e6a-5307-4db3-bc05-48afe57a2afd"]
   }],
-  "urls": [
-    "https://develop.data.gov.au/", 
-    "https://production.data.gov.au/", 
-    "https://staging.data.gov.au/", 
-    "https://data.gov.au/", 
-    "http://localhost/"
-  ],
+  "urls": ["https://develop.data.gov.au/", "https://production.data.gov.au/", "https://staging.data.gov.au/", "https://data.gov.au/", "http://localhost/"],
   "plugins": []
 }
