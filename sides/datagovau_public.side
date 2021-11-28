@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "http://localhost/",
+  "url": "https://data.gov.au/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -21,6 +21,18 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "1c101a50-78a5-4091-a15b-af908a1f82fe",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//h1[contains(.,'Logged Out')]",
+      "targets": [
+        ["css=.page-heading", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Logged Out')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
       "id": "882690b7-01ef-486c-8c2f-82a0ef65d9af",
       "comment": "",
       "command": "clickAt",
@@ -35,6 +47,19 @@
       ],
       "value": ""
     }, {
+      "id": "7d0020ea-172f-424a-a665-d6390db5b74f",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=//button[contains(.,'Login')]",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
       "id": "9037b323-c155-4736-aa03-63a4aab4c33f",
       "comment": "",
       "command": "clickAt",
@@ -48,7 +73,7 @@
     }, {
       "id": "50c47ce8-916b-435f-81b9-5ec5a12a99ee",
       "comment": "",
-      "command": "assertText",
+      "command": "waitForElementPresent",
       "target": "css=.heading",
       "targets": [
         ["css=.heading", "css:finder"],
