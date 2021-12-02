@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "https://data.gov.au/",
+  "url": "http://localhost/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -24,12 +24,14 @@
       "id": "1c101a50-78a5-4091-a15b-af908a1f82fe",
       "comment": "",
       "command": "waitForElementPresent",
-      "target": "xpath=//h1[contains(.,'Logged Out')]",
+      "target": "linkText=Log in",
       "targets": [
-        ["css=.page-heading", "css:finder"],
-        ["xpath=//div[@id='content']/div[3]/div/section/div/h1", "xpath:idRelative"],
-        ["xpath=//h1", "xpath:position"],
-        ["xpath=//h1[contains(.,'Logged Out')]", "xpath:innerText"]
+        ["linkText=Log in", "linkText"],
+        ["css=.list-unstyled:nth-child(1) > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Log in')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/data/user/login')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log in')]", "xpath:innerText"]
       ],
       "value": "30000"
     }, {
@@ -60,6 +62,82 @@
       ],
       "value": "30000"
     }, {
+      "id": "603ff859-040b-4a21-b75e-f3e37a9a0da1",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=field-login",
+      "targets": [
+        ["id=field-login", "id"],
+        ["name=login", "name"],
+        ["css=#field-login", "css:finder"],
+        ["xpath=//input[@id='field-login']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "91858b66-e684-4b2f-8b65-9424561dccef",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "name=password",
+      "targets": [
+        ["css=.control-group:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/form/div[3]", "xpath:idRelative"],
+        ["xpath=//form/div[3]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "4b1f768a-a707-4c7e-b1bd-8d0e8d2b4e74",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=field-remember",
+      "targets": [
+        ["id=field-remember", "id"],
+        ["name=remember", "name"],
+        ["css=#field-remember", "css:finder"],
+        ["xpath=//input[@id='field-remember']", "xpath:attributes"],
+        ["xpath=//div[@id='content']/div[3]/div/section/div/form/div[3]/div/label/input", "xpath:idRelative"],
+        ["xpath=//label/input", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "b939ce8c-f854-4fec-8568-3a8d684c49d2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Create an Account",
+      "targets": [
+        ["linkText=Create an Account", "linkText"],
+        ["css=.module:nth-child(1) .action > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Create an Account')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/aside/section/div/p[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/data/user/register')])[2]", "xpath:href"],
+        ["xpath=//p[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Create an Account')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "1c29c9ba-753a-4450-ae1e-d5aeefa65880",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Forgot your password?",
+      "targets": [
+        ["linkText=Forgot your password?", "linkText"],
+        ["css=.module:nth-child(2) .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Forgot your password?')]", "xpath:link"],
+        ["xpath=//div[@id='content']/div[3]/aside/section[2]/div/p[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/data/user/reset')]", "xpath:href"],
+        ["xpath=//section[2]/div/p[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Forgot your password?')]", "xpath:innerText"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "5d3ea534-4784-4bac-8355-0904d1299b6f",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.fa-home",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "9037b323-c155-4736-aa03-63a4aab4c33f",
       "comment": "",
       "command": "clickAt",
@@ -74,13 +152,13 @@
       "id": "50c47ce8-916b-435f-81b9-5ec5a12a99ee",
       "comment": "",
       "command": "waitForElementPresent",
-      "target": "css=.heading",
+      "target": "xpath=//h3[contains(.,'Search data')]",
       "targets": [
         ["css=.heading", "css:finder"],
         ["xpath=//h3", "xpath:position"],
         ["xpath=//h3[contains(.,'Search data')]", "xpath:innerText"]
       ],
-      "value": "Search data"
+      "value": "30000"
     }, {
       "id": "80f357af-ddf7-449d-96db-0a01369b894f",
       "comment": "",
