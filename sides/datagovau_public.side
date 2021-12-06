@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "https://production.data.gov.au/",
+  "url": "https://data.gov.au/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -486,10 +486,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "30047652-95a2-463a-9005-c84b53a54116",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "b4811a83-eb7c-4720-86da-3cc9b0660963",
       "comment": "",
       "command": "waitForElementEditable",
-      "target": "css=.search",
+      "target": "xpath=(//input[@name='q'])[2]",
       "targets": [
         ["css=.search", "css:finder"],
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
