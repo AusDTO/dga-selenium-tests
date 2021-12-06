@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "https://staging.data.gov.au/",
+  "url": "https://production.data.gov.au/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -452,7 +452,7 @@
     }]
   }, {
     "id": "4c0c5ba8-b4bb-473b-a7c6-077411f246ba",
-    "name": "05_navigate_to_about",
+    "name": "06_navigate_to_about",
     "commands": [{
       "id": "142b5f2a-36c1-4a82-9d35-b3872d6e684e",
       "comment": "",
@@ -485,6 +485,17 @@
       "target": "1024x768",
       "targets": [],
       "value": ""
+    }, {
+      "id": "b4811a83-eb7c-4720-86da-3cc9b0660963",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "css=.search",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "90000"
     }, {
       "id": "c5a9b49a-d8cc-4b8a-98e0-9fb1cfc37014",
       "comment": "",
@@ -563,6 +574,20 @@
       "target": "1024x768",
       "targets": [],
       "value": ""
+    }, {
+      "id": "fe1c8532-44af-4818-a26c-07cc3498b8d8",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Datasets",
+      "targets": [
+        ["linkText=Datasets", "linkText"],
+        ["css=.nav > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Datasets')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/data/dataset')]", "xpath:href"],
+        ["xpath=//div/div/nav/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Datasets')]", "xpath:innerText"]
+      ],
+      "value": "90000"
     }, {
       "id": "e24fce6b-05cb-4871-a331-c2582f95420a",
       "comment": "",
@@ -695,6 +720,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "ae41d137-c28e-450d-be2b-1a59f3ab5951",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [
+        ["css=.search", "css:finder"],
+        ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
       "id": "f7222a89-583d-4fa6-b6c3-cdbeda218339",
       "comment": "",
       "command": "type",
@@ -768,7 +804,7 @@
     }]
   }, {
     "id": "4e7ad37a-d004-46e2-9724-a40284c5584c",
-    "name": "04_test_collapse_filters",
+    "name": "05_test_collapse_filters",
     "commands": [{
       "id": "a7da07d3-4b68-479b-89a7-31399429b5f2",
       "comment": "",
@@ -783,6 +819,13 @@
       "target": "1024x768",
       "targets": [],
       "value": ""
+    }, {
+      "id": "3daf1781-c483-49d5-8e43-c7fc229fc1a5",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "f34f0326-e9b3-415c-91cc-328a7a44eb41",
       "comment": "",
@@ -873,7 +916,7 @@
     }]
   }, {
     "id": "1d004565-8c52-4a9b-b489-e52be369b2ae",
-    "name": "05_test_format_filter",
+    "name": "07_test_format_filter",
     "commands": [{
       "id": "c20516d8-d999-46ca-8acc-ad7003f45dde",
       "comment": "",
@@ -888,6 +931,13 @@
       "target": "1024x768",
       "targets": [],
       "value": ""
+    }, {
+      "id": "7df13895-3a06-463f-bad0-bdcc32c318f6",
+      "comment": "",
+      "command": "waitForElementEditable",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "0c86bcef-8e2a-4b9c-a813-447fd5c59895",
       "comment": "",
