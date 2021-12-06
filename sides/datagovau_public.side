@@ -33,7 +33,7 @@
         ["xpath=//li/a", "xpath:position"],
         ["xpath=//a[contains(.,'Log in')]", "xpath:innerText"]
       ],
-      "value": "30000"
+      "value": "90000"
     }, {
       "id": "882690b7-01ef-486c-8c2f-82a0ef65d9af",
       "comment": "",
@@ -1279,7 +1279,7 @@
         ["xpath=//div[4]/button", "xpath:position"],
         ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
       ],
-      "value": "60000"
+      "value": "90000"
     }]
   }, {
     "id": "6c3af344-53e6-40de-a56b-8f4da0bd3c2e",
