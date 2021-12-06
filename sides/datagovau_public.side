@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "http://localhost/",
+  "url": "https://staging.data.gov.au/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -1252,7 +1252,7 @@
         ["xpath=(//input[@name='q'])[2]", "xpath:attributes"],
         ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
       ],
-      "value": "30000"
+      "value": "60000"
     }, {
       "id": "e0e26f45-0043-4e43-baa8-aa72c24a00ba",
       "comment": "",
@@ -1279,7 +1279,7 @@
         ["xpath=//div[4]/button", "xpath:position"],
         ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
       ],
-      "value": "30000"
+      "value": "60000"
     }]
   }, {
     "id": "6c3af344-53e6-40de-a56b-8f4da0bd3c2e",
