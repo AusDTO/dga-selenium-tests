@@ -470,7 +470,7 @@
     }]
   }, {
     "id": "8ba62b42-940a-4592-9390-0272304690ff",
-    "name": "01_search_datasets_blank_terms",
+    "name": "13_search_datasets_blank_terms",
     "commands": [{
       "id": "b00c568c-414a-40d6-93b3-393bd80e62e2",
       "comment": "",
@@ -1027,7 +1027,7 @@
     }]
   }, {
     "id": "993ea8fa-0da2-436e-9cd4-8d30d4a5a65e",
-    "name": "01_test_dataset_click",
+    "name": "12_test_dataset_click",
     "commands": [{
       "id": "abee0680-73f2-4891-bc15-b139c8a8c87c",
       "comment": "",
@@ -1043,12 +1043,19 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "2834398c-219f-4158-bad4-ec98d7f1716f",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "xpath=(//input[@name='q'])[2]",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "6c311a28-f753-44ee-aa8b-3a74062a307a",
       "comment": "",
       "command": "waitForElementEditable",
       "target": "xpath=(//input[@name='q'])[2]",
       "targets": [],
-      "value": "30000"
+      "value": "90000"
     }, {
       "id": "82d3c3a1-b8c3-44bc-89f1-5ec32a9f2ff8",
       "comment": "",
