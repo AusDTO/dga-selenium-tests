@@ -2,7 +2,7 @@
   "id": "8bc7ad3f-da43-457d-9b20-e095e5ff7d57",
   "version": "2.0",
   "name": "datagovau_public",
-  "url": "https://production.data.gov.au/",
+  "url": "https://ckan.develop.data.gov.au/",
   "tests": [{
     "id": "19da0451-d821-4746-b34a-03877c33c028",
     "name": "01_home_page_content",
@@ -264,6 +264,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "b87db719-ab98-4360-b9bf-a3d65fcd3cdc",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Datasets",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "6726acd6-e181-45dc-9b32-89acc3335678",
       "comment": "",
       "command": "click",
@@ -376,6 +383,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "8f98c762-da8f-4450-9099-d02ce877cebc",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Organisations",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "df7105d6-4609-495b-9e73-e408251efcec",
       "comment": "",
       "command": "click",
@@ -463,6 +477,13 @@
       "target": "1024x768",
       "targets": [],
       "value": ""
+    }, {
+      "id": "274d2b70-e656-4dd3-8573-3cbdfe9a5434",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Community",
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "f89dfc9e-c1c2-40d9-a1fb-4fe46d6a7631",
       "comment": "",
@@ -1435,6 +1456,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "80e847bc-f272-42b4-ad99-0789d99afec8",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=.au-footer__navigation:nth-child(1) li:nth-child(3)",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "39b2996a-2895-4cb2-9ca8-57a5930fda14",
       "comment": "",
       "command": "click",
@@ -1476,6 +1504,13 @@
       "target": "1296x895",
       "targets": [],
       "value": ""
+    }, {
+      "id": "26610483-b9be-4eeb-9672-b237d2074046",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Open Data Toolkit",
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "33fbceb8-f4f3-4756-9c10-64ac6008a1fc",
       "comment": "",
@@ -1520,6 +1555,13 @@
       "target": "1280x849",
       "targets": [],
       "value": ""
+    }, {
+      "id": "0fa2f002-703a-451a-a819-12467897d3f2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=NationalMap",
+      "targets": [],
+      "value": "30000"
     }, {
       "id": "1cba4ec1-26e2-42d4-80a4-370a8295e62e",
       "comment": "",
@@ -1599,6 +1641,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "bc86e1dc-1142-4a2c-a091-f082b0db4f8f",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "linkText=Community",
+      "targets": [],
+      "value": "30000"
+    }, {
       "id": "e36afa37-e128-40ab-8028-018a13f74257",
       "comment": "",
       "command": "click",
@@ -1651,6 +1700,6 @@
     "timeout": 300,
     "tests": ["dfc18e6a-5307-4db3-bc05-48afe57a2afd"]
   }],
-  "urls": ["https://develop.data.gov.au/", "https://production.data.gov.au/", "https://staging.data.gov.au/", "https://data.gov.au/", "http://localhost/"],
+  "urls": ["https://develop.data.gov.au/", "https://production.data.gov.au/", "https://staging.data.gov.au/", "https://data.gov.au/", "http://localhost/", "https://ckan.develop.data.gov.au/"],
   "plugins": []
 }
